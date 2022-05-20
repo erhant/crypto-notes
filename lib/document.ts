@@ -3,8 +3,8 @@ import { join } from "path"
 import matter from "gray-matter"
 import glob from "glob"
 
-const documentsDirectoryName = "../content"
-const documentsDirectory = join(process.cwd(), documentsDirectoryName)
+const postsDirectoryName = "content"
+const postsDirectory = join(process.cwd(), postsDirectoryName)
 const uniqueSluggifier = "___"
 
 /**
@@ -12,11 +12,11 @@ const uniqueSluggifier = "___"
  * @param {string} path
  */
 function pathToSlug(path: string): string {
-  return path.slice(documentsDirectoryName.length + 1).replace(new RegExp("/", "g"), uniqueSluggifier)
+  return path.slice(postsDirectoryName.length + 1).replace(new RegExp("/", "g"), uniqueSluggifier)
 }
 
 /**
- * Convert a slug to path under documents directory.
+ * Convert a slug to path under posts directory.
  * @param {string} slug
  */
 function slugToPath(slug: string): string {
@@ -24,11 +24,11 @@ function slugToPath(slug: string): string {
 }
 
 /**
- * Get paths of all files under documents directory.
+ * Get paths of all files under posts directory.
  */
-function getDocumentPaths(): Promise<string[]> {
+function getPostPaths(): Promise<string[]> {
   return new Promise((resolve, reject) => {
-    glob(documentsDirectoryName + "/**/*.md", (err, files) => {
+    glob(postsDirectoryName + "/**/*.md", (err, files) => {
       if (err) reject(err)
       else resolve(files.map((f: string) => f))
     })
@@ -36,15 +36,15 @@ function getDocumentPaths(): Promise<string[]> {
 }
 
 /**
- * Get a Document by its slug. Converts the slug to path, and then finds the Document by path.
- * @see getDocumentByPath
+ * Get a post by its slug. Converts the slug to path, and then finds the post by path.
+ * @see getPostByPath
  * @param {string} slug
  * @param {string[]} fields
  */
-export async function getDocumentBySlug(slug: string, fields: string[] = []) {
-  return await getDocumentByPath(join(documentsDirectory, slugToPath(slug)), fields)
+export async function getPostBySlug(slug: string, fields: string[] = []) {
+  return await getPostByPath(join(postsDirectory, slugToPath(slug)), fields)
 }
-export async function getDocumentByPath(path: string, fields: string[] = []) {
+export async function getPostByPath(path: string, fields: string[] = []) {
   const { data, content } = matter(fs.readFileSync(path, "utf8"))
   const items: {
     [key: string]: string
@@ -65,15 +65,16 @@ export async function getDocumentByPath(path: string, fields: string[] = []) {
   return items
 }
 
-export async function getAlldocuments(fields: string[] = []) {
-  const paths = await getDocumentPaths()
+export async function getAllPosts(fields: string[] = []) {
+  const paths = await getPostPaths()
   //console.log(paths)
 
-  // read documents
-  const documents = []
-  for (let i = 0; i < paths.length; ++i) documents.push(await getDocumentByPath(paths[i], fields))
-
+  // read posts
+  const posts = []
+  for (let i = 0; i < paths.length; ++i) posts.push(await getPostByPath(paths[i], fields))
+  
   // sort them
-  documents.sort((p, q) => (p.date > q.date ? -1 : 1))
-  return documents
+  //posts.sort((p, q) => (p.date > q.date ? -1 : 1))
+  console.log(posts)
+  return posts
 }

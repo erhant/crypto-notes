@@ -1,3 +1,7 @@
+---
+title: "pro"
+---
+
 # Perfect Secrecy
 **Formal Definition**: An encryption scheme $(\text{Gen}, \text{Enc}. \text{Dec})$ with message space $\mathcal{M}$ and ciphertext space $\mathcal{C}$ is **perfectly secret** if $\forall m \in \mathcal{M}$ and $\forall c \in \mathcal{C}$ where $\Pr[C=c] > 0$, it holds that:
 $$

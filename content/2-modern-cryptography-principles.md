@@ -1,3 +1,7 @@
+---
+title: "pro"
+---
+
 # Modern Cryptography Principles
 1. Precise and format definition of security must be presented.
 2. Assumptions should be clear, minimal and basic, complete.

@@ -1,3 +1,7 @@
+---
+title: "pro"
+---
+
 # Probability
 
 - **Random Variable**: A variable that takes on (discrete) values with certain probabilities

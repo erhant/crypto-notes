@@ -1,0 +1,32 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+
+.app header {
+  background-color: #282c34; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  color: white;
+  padding: 30px 25% 30px 25%;
+}
+
+.app header div { 
+  margin: auto;
+  color: red; 
+  overflow: scroll;
+}
+
+.app footer {
+  text-align: center;
+  padding: 30px 0 30px 0;
+}
+
+.app main {
+  margin: auto;
+  width: max(50%, 350px);
+}
+ 

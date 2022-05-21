@@ -10,18 +10,16 @@ order: 2
 2. Assumptions should be clear, minimal and basic, complete.
 3. Rigorous proof of security must be given.
 
-_NOT:_ Provably secure schemes can be broken if the definition does not correspond to reality, or if the assumptions are invalid.
-
-_NOT:_ The best assumptions are ones that are old (thus still valid against test of time), simple (thus generic enough), and shared (thus general enough).
+Provably secure schemes can be broken if the definition does not correspond to reality, or if the assumptions are invalid. The best assumptions are ones that are old (thus still valid against test of time), simple (thus generic enough), and shared (thus general enough).
 
 ## Formal Definition of Secure Encryption
 
 Let us try to define the term "secure".
 
-- ❌"_No adversary can find the secret key, no matter what the ciphertext is._" Well, $\text{Enc}(k, x) = x$ provides this, but is definitely not secure ;)
-- ❌"_No adversary can find the plaintext from the ciphertext._" $\text{Enc}(k, x) = \text{last half of } x$ satisfies this, but is obviously not secure.
-- ❌"_No adversary can determine and character of the plaintext that correspond to the ciphertext._" This sounds good, but the adversary can still learn which characters of the alphabet is used, which may be bad. For example if the adversary learns the characters $e, h, y$ and the message is 3 letters, it is probably "hey".
-- ✔️"_No adversary can compute any function of the plaintext from the ciphertext_" Now that sounds formal, but we need to be more formal!
+- ❌ - "_No adversary can find the secret key, no matter what the ciphertext is._" Well, $\text{Enc}(k, x) = x$ provides this, but is definitely not secure ;)
+- ❌ - "_No adversary can find the plaintext from the ciphertext._" $\text{Enc}(k, x) = \text{last half of } x$ satisfies this, but is obviously not secure.
+- ❌ - "_No adversary can determine and character of the plaintext that correspond to the ciphertext._" This sounds good, but the adversary can still learn which characters of the alphabet is used, which may be bad. For example if the adversary learns the characters $e, h, y$ and the message is 3 letters, it is probably "hey".
+- ✔️ - "_No adversary can compute any function of the plaintext from the ciphertext_" Now that sounds formal, but we need to be more formal!
 
 _NOT:_ $F(m)=|m|$ is a function of plaintext that gives its length. It is often very hard to hide this, so the last bullet often allows this function to be computable.
 
@@ -36,9 +34,9 @@ sequenceDiagram
 	Note over Alice,Bob: Both parties have k
 
 	%% encryption and decryption
-	Note over Alice: c <- Enc(k,m)
+	Note over Alice: c #8592; Enc(k,m)
 	Alice ->> Bob: c
-	Note over Bob: m <- Dec(k,c)
+	Note over Bob: m #8592; Dec(k,c)
 
 ```
 
@@ -78,3 +76,7 @@ $$
 &= \frac{1}{52}
 \end{align}
 $$
+
+```
+
+```

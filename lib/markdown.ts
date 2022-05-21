@@ -5,13 +5,13 @@ import remarkRehype from "remark-rehype" // markdown to html
 import rehypeKatex from "rehype-katex" // math
 import rehypeStringify from "rehype-stringify" // final output
 import rehypeHighlight from "rehype-highlight" // code
-import mermaid from "remark-mermaid"
+import { remarkMermaid } from "remark-mermaidjs"
 
 export default async function toHTML(markdown: string) {
   const result = await unified()
     .use(remarkParse)
-    .use(mermaid)
     .use(remarkMath)
+    .use(remarkMermaid) // NOTE: type error here?
     .use(remarkRehype)
     .use(rehypeHighlight)
     .use(rehypeKatex)

@@ -1,8 +1,13 @@
+$fontFamily: Oxygen, Verdana, Arial, sans-serif;
+$themeColor: #202123;
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: $fontFamily;
+  margin: 0 0 0 0;
 }
 
+// Layout styles
+$container-width: max(60%, 350px);
 .layout {
   display: flex;
   flex-direction: column;
@@ -10,30 +15,94 @@ body {
   height: 100vh;
 
   header {
-    background-color: #282c34;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #202123;
     color: white;
-    padding: 30px 25% 30px 25%;
+    padding: 10px 0 10px 0;
 
     div {
+      width: $container-width;
       margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      div {
+        &:first-of-type {
+          flex-grow: 1;
+        }
+      }
+
+      a {
+        margin: 0 5px 0 5px;
+      }
     }
   }
 
   footer {
     text-align: center;
-    padding: 30px 0 30px 0;
+    padding: 15px 0 15px 0;
   }
 
   main {
     margin: auto;
-    width: max(50%, 350px);
+    width: $container-width;
   }
+
   div {
     &:first-of-type {
       flex-grow: 1;
     }
+  }
+}
+
+// link styles (<a>)
+.link {
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.title {
+    font-size: 2em;
+  }
+}
+
+// document previews (for the main-menu)
+.preview {
+  a {
+    color: $themeColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p:first-of-type {
+    margin-top: -10px;
+  }
+}
+
+// Markdown converted to HTML will follow this style
+
+.markdown {
+  a {
+    color: inherit;
+  }
+  h1 {
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+
+  // mermaidJS markdown is converted to svg, this rule affects them
+  svg {
+    // https://stackoverflow.com/questions/8639383/how-do-i-center-an-svg-in-a-div
+    display: block;
+    margin: auto;
+
+    font-family: $fontFamily;
   }
 }

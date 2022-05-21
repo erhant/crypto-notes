@@ -56,11 +56,12 @@ export async function getDocumentByPath(path: string): Promise<DocumentType> {
   const { data, content } = matter(fs.readFileSync(path, "utf8"))
 
   // assert data has specified fields
-  assert(
-    Object.keys(dummyDocumentGrayMatter).every((key) => {
-      Object.hasOwn(data, key)
-    }, `Gray-matter of ${path} is missing some fields.`)
-  )
+
+  // assert(
+  //   Object.keys(dummyDocumentGrayMatter).every((key) => {
+  //     Object.hasOwn(data, key)
+  //   }, `Gray-matter of ${path} is missing some fields.`)
+  // )
 
   return {
     ...data,
@@ -77,7 +78,7 @@ export async function getAllDocuments() {
   for (let i = 0; i < paths.length; ++i) documents.push(await getDocumentByPath(paths[i]))
 
   // sort them
-  documents.sort((p, q) => (p.order > q.order ? -1 : 1))
+  documents.sort((p, q) => (p.order > q.order ? 1 : -1))
 
   return documents
 }

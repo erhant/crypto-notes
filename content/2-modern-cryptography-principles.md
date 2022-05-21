@@ -1,8 +1,11 @@
 ---
-title: "pro"
+title: "Modern Cryptography Principles"
+desc: "We look at the principles of modern cryptography, and define what a secure encryption is. We further define the threat models."
+order: 2
 ---
 
 # Modern Cryptography Principles
+
 1. Precise and format definition of security must be presented.
 2. Assumptions should be clear, minimal and basic, complete.
 3. Rigorous proof of security must be given.
@@ -10,7 +13,9 @@ title: "pro"
 _NOT:_ Provably secure schemes can be broken if the definition does not correspond to reality, or if the assumptions are invalid.
 
 _NOT:_ The best assumptions are ones that are old (thus still valid against test of time), simple (thus generic enough), and shared (thus general enough).
+
 ## Formal Definition of Secure Encryption
+
 Let us try to define the term "secure".
 
 - ❌"_No adversary can find the secret key, no matter what the ciphertext is._" Well, $\text{Enc}(k, x) = x$ provides this, but is definitely not secure ;)
@@ -21,36 +26,41 @@ Let us try to define the term "secure".
 _NOT:_ $F(m)=|m|$ is a function of plaintext that gives its length. It is often very hard to hide this, so the last bullet often allows this function to be computable.
 
 ## Symmetric Ciphers
+
 Here is an outline of what symmetric ciphers look like:
+
 ```mermaid
-sequenceDiagram 
+sequenceDiagram
 	actor Alice
-	actor Bob 
+	actor Bob
 	Note over Alice,Bob: Both parties have k
-	
+
 	%% encryption and decryption
-	Note over Alice: c <- Enc(k,m) 
+	Note over Alice: c <- Enc(k,m)
 	Alice ->> Bob: c
 	Note over Bob: m <- Dec(k,c)
-	
+
 ```
 
 # Threat Models
+
 There are 4 threat models, with increasing attack power:
+
 1. **Ciphertext-only attack**: The adversary can attack just by looking at one (or many) ciphertexts.
 2. **Known-plaintext attack**
 3. **Chosen-plaintext attack**
 4. **Chosen-ciphertext attack**
 
 A good security definition against **ciphertext-only attack** is: "regardless of any prior information the attacker has about the plaintext, the ciphertext should leak no additional information about the plaintext."
-  
 
 ## Probability Distribution for Encryption Scheme
+
 Let $M$ be a random variable (r.v.) denoting the value of a message. $M$ ranges over the message space $\mathcal{M}$. For example, $\Pr[M=\text{"attack"}] = 0.7$, $\Pr[M=\text{"dont"}] = 0.3$.
 
-Let $K$ be a r.v. denoting the key denoting the value of a key. $K$ ranges over the key space $\mathcal{K}$. Notice that $M$ and $K$ are independent random variables! 
+Let $K$ be a r.v. denoting the key denoting the value of a key. $K$ ranges over the key space $\mathcal{K}$. Notice that $M$ and $K$ are independent random variables!
 
 Fix some encryption scheme $(\text{Gen}, \text{Enc}, \text{Dec})$ and some distribution for $M$. Consider the following experiment:
+
 1. Choose a message $m$ according to the given distribution.
 2. Generate a key $k$ using $\text{Gen}$.
 3. Compute $c \gets \text{Enc}(k,m)$. Here, $c$ will be a random value denoting the result of this experiment.
@@ -66,5 +76,5 @@ $$
 &+ \Pr[C=\text{"rgh"} \mid M=\text{"ten"}]\times\Pr[M=\text{"ten"}] \\
 &= \frac{1}{26} \times \frac{1}{2} + 0 \times \frac{1}{2} \\
 &= \frac{1}{52}
-\end{align} 
+\end{align}
 $$

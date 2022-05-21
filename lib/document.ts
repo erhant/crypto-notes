@@ -2,21 +2,30 @@ import fs from "fs"
 import { join } from "path"
 import matter from "gray-matter"
 import glob from "glob"
+import DocumentType from "../types/document"
+import { assert } from "console"
 
-const postsDirectoryName = "content"
-const postsDirectory = join(process.cwd(), postsDirectoryName)
+const documentsDirectoryName = "content"
+const documentsDirectory = join(process.cwd(), documentsDirectoryName)
 const uniqueSluggifier = "___"
 
+const dummyDocumentGrayMatter: DocumentType = {
+  title: "",
+  desc: "",
+  order: 0,
+  content: "",
+  slug: "",
+}
 /**
  * Generate the slug from path of a file.
  * @param {string} path
  */
 function pathToSlug(path: string): string {
-  return path.slice(postsDirectoryName.length + 1).replace(new RegExp("/", "g"), uniqueSluggifier)
+  return path.slice(documentsDirectoryName.length + 1).replace(new RegExp("/", "g"), uniqueSluggifier)
 }
 
 /**
- * Convert a slug to path under posts directory.
+ * Convert a slug to path under documents directory.
  * @param {string} slug
  */
 function slugToPath(slug: string): string {
@@ -24,11 +33,11 @@ function slugToPath(slug: string): string {
 }
 
 /**
- * Get paths of all files under posts directory.
+ * Get paths of all files under documents directory.
  */
-function getPostPaths(): Promise<string[]> {
+function getDocumentPaths(): Promise<string[]> {
   return new Promise((resolve, reject) => {
-    glob(postsDirectoryName + "/**/*.md", (err, files) => {
+    glob(documentsDirectoryName + "/**/*.md", (err, files) => {
       if (err) reject(err)
       else resolve(files.map((f: string) => f))
     })
@@ -36,45 +45,39 @@ function getPostPaths(): Promise<string[]> {
 }
 
 /**
- * Get a post by its slug. Converts the slug to path, and then finds the post by path.
- * @see getPostByPath
+ * Get a document by its slug. Converts the slug to path, and then finds the document by path.
+ * @see getDocumentByPath
  * @param {string} slug
- * @param {string[]} fields
  */
-export async function getPostBySlug(slug: string, fields: string[] = []) {
-  return await getPostByPath(join(postsDirectory, slugToPath(slug)), fields)
+export async function getDocumentBySlug(slug: string): Promise<DocumentType> {
+  return await getDocumentByPath(join(documentsDirectory, slugToPath(slug)))
 }
-export async function getPostByPath(path: string, fields: string[] = []) {
+export async function getDocumentByPath(path: string): Promise<DocumentType> {
   const { data, content } = matter(fs.readFileSync(path, "utf8"))
-  const items: {
-    [key: string]: string
-  } = {}
 
-  // ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === "slug") {
-      items[field] = pathToSlug(path)
-    }
-    if (field === "content") {
-      items[field] = content
-    }
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field]
-    }
-  })
-  return items
+  // assert data has specified fields
+  assert(
+    Object.keys(dummyDocumentGrayMatter).every((key) => {
+      Object.hasOwn(data, key)
+    }, `Gray-matter of ${path} is missing some fields.`)
+  )
+
+  return {
+    ...data,
+    slug: pathToSlug(path),
+    content,
+  } as DocumentType
 }
 
-export async function getAllPosts(fields: string[] = []) {
-  const paths = await getPostPaths()
-  //console.log(paths)
+export async function getAllDocuments() {
+  const paths = await getDocumentPaths()
 
-  // read posts
-  const posts = []
-  for (let i = 0; i < paths.length; ++i) posts.push(await getPostByPath(paths[i], fields))
-  
+  // read documents
+  const documents = []
+  for (let i = 0; i < paths.length; ++i) documents.push(await getDocumentByPath(paths[i]))
+
   // sort them
-  //posts.sort((p, q) => (p.date > q.date ? -1 : 1))
-  console.log(posts)
-  return posts
+  documents.sort((p, q) => (p.order > q.order ? -1 : 1))
+
+  return documents
 }

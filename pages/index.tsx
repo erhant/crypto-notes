@@ -1,10 +1,12 @@
-import type { NextPage } from 'next'
-import Head from 'next/head' 
-import { getAllPosts } from '../lib/document'
+import type { NextPage } from "next"
+import Head from "next/head"
+import Link from "next/link"
+import { getAllDocuments } from "../lib/document"
+import DocumentType from "../types/document"
 
-const Home: NextPage<{posts: {
-  [key: string]: string;
-}[]}> = ({ posts }) => {
+const Home: NextPage<{
+  documents: DocumentType[]
+}> = ({ documents }) => {
   return (
     <div className="layout">
       <Head>
@@ -13,15 +15,27 @@ const Home: NextPage<{posts: {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        header
-      </header>
-      <main> 
- 
-          <h1>{posts[0].title}</h1>
+      <header>header</header>
+      <main>
+        {documents.length > 0 ? (
+          documents.map((d, i) => (
+            <div key={i}>
+              <Link href={d.slug} passHref>
+                <a>
+                  <h1>
+                    {d.order} - {d.title}
+                  </h1>
+                </a>
+              </Link>
+              <p>{d.desc}</p>
+            </div>
+          ))
+        ) : (
+          <h1>No documents yet.</h1>
+        )}
       </main>
 
-      <div/>
+      <div />
       <footer>
         <h2>erhan</h2>
       </footer>
@@ -31,13 +45,10 @@ const Home: NextPage<{posts: {
 
 export default Home
 
-
 export const getStaticProps = async () => {
-  const posts: {
-    [key: string]: string;
-}[] = await getAllPosts(['title'])
+  const documents: DocumentType[] = await getAllDocuments()
 
   return {
-    props: { posts },
+    props: { documents },
   }
 }

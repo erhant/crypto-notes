@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "dependencies": { 
+  "dependencies": {
     "glob": "^8.0.3",
     "gray-matter": "^4.0.3",
+    "mermaid.cli": "^0.5.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -18,6 +19,7 @@
     "rehype-katex": "^6.0.2",
     "rehype-stringify": "^9.0.3",
     "remark-math": "^5.1.1",
+    "remark-mermaid": "^0.2.0",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
     "sass": "^1.52.0",

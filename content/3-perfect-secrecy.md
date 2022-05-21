@@ -1,15 +1,17 @@
 ---
-title: "pro"
+title: "Perfect Secrecy"
+desc: "We give a formal definition of perfect secrecy, and shown that there is only one algorithm that can achieve it."
+order: 3
 ---
 
 # Perfect Secrecy
+
 **Formal Definition**: An encryption scheme $(\text{Gen}, \text{Enc}. \text{Dec})$ with message space $\mathcal{M}$ and ciphertext space $\mathcal{C}$ is **perfectly secret** if $\forall m \in \mathcal{M}$ and $\forall c \in \mathcal{C}$ where $\Pr[C=c] > 0$, it holds that:
+
 $$
 \Pr[M=m \mid C=c] = \Pr[M=m]
 $$
 
 I find this definition to be a thing of beauty. It is quite simple in logic: your idea about what a message may be at the start (_a priori_ probability, right-hand side) should be equal to what you think that message is after seeing the ciphertext (_a posteriori_ probability, left-hand side). If that is the case, seeing the cipher-text gave you no idea whatsoever.
 
-_EXAMPLE:_ Consider the same shift cipher example from before, and notice that $\Pr[M=\text{"ten"} \mid C=\text{"rqh"}] = 0$. Since $\Pr[M=\text{"ten"}] = 1/2$, we can say this scheme is not perfectly secret. 
-
-
+_EXAMPLE:_ Consider the same shift cipher example from before, and notice that $\Pr[M=\text{"ten"} \mid C=\text{"rqh"}] = 0$. Since $\Pr[M=\text{"ten"}] = 1/2$, we can say this scheme is not perfectly secret.

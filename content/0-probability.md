@@ -1,5 +1,7 @@
 ---
-title: "pro"
+title: "Probability Introduction"
+desc: "Before we start, there is some probability background to cover. Read this one first if you are not confident in that part!"
+order: 0
 ---
 
 # Probability

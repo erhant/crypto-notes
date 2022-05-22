@@ -9,14 +9,14 @@ import Layout from "../components/layout"
 
 const Document: NextPage<{
   document: DocumentType
-}> = ({ document }) => {
+}> = ({ document, next, prev }) => {
   const router = useRouter()
 
   if (!router.isFallback && !document?.slug) {
     return <ErrorPage statusCode={404} />
   } else {
     return router.isFallback ? (
-      <h1>Loading…</h1>
+      <p style={{ textAlign: "center" }}>Loading…</p>
     ) : (
       <>
         <Head>
@@ -24,9 +24,13 @@ const Document: NextPage<{
           <meta name="description" content={document.desc} key="desc" />
         </Head>
         <Layout>
-          <article>
-            <div className="markdown" dangerouslySetInnerHTML={{ __html: document.content }} />
-          </article>
+          <>
+            <article>
+              <h1>{prev?.title}</h1>
+              <h1>{next?.title}</h1>
+              <div className="markdown" dangerouslySetInnerHTML={{ __html: document.content }} />
+            </article>
+          </>
         </Layout>
       </>
     )
@@ -45,6 +49,7 @@ export async function getStaticProps({
   const document = await getDocumentBySlug(params.slug)
   const content = await toHTML(document.content || "")
 
+  console.log("P:", params)
   return {
     props: {
       document: {
@@ -60,7 +65,7 @@ export async function getStaticPaths() {
   const posts = await getAllDocuments()
 
   return {
-    paths: posts.map((document) => {
+    paths: posts.map((document, i) => {
       return {
         params: {
           slug: document.slug,

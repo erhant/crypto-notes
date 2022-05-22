@@ -18,6 +18,7 @@
     "rehype-highlight": "^5.0.2",
     "rehype-katex": "^6.0.2",
     "rehype-stringify": "^9.0.3",
+    "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
     "remark-mermaidjs": "^2.1.1",
     "remark-parse": "^10.0.1",

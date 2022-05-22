@@ -1,6 +1,6 @@
 ---
-title: "Probability Introduction"
-desc: "Before we start, there is some probability background to cover. Read this one first if you are not confident in that part!"
+title: "Probability"
+desc: "Before we start, there is some probability background to cover."
 order: 0
 ---
 
@@ -64,12 +64,12 @@ _NOT:_ A deterministic algorithm is one where $y \gets F(x)$, but a randomized a
 
 XOR is a very important function that will keep appearing throughout cryptography. It is a logical operation $\oplus : \{0, 1\} \times \{0, 1\} \to \{0, 1\}$:
 
-| a   | b   | a XOR b |
-| --- | --- | ------- |
-| 0   | 0   | 0       |
-| 0   | 1   | 1       |
-| 1   | 0   | 1       |
-| 1   | 1   | 0       |
+| a   | b   | a $\oplus$ b |
+| --- | --- | ------------ |
+| 0   | 0   | 0            |
+| 0   | 1   | 1            |
+| 1   | 0   | 1            |
+| 1   | 1   | 0            |
 
 **Theorem**: For a r.v. $X$ over $\{0, 1\}^n$ and an independent uniform random r.v. $Y$ over $\{0, 1\}^n$, $Z := X \oplus Y$ is a uniform random variable over $\{0, 1\}^n$.
 

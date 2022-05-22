@@ -16,10 +16,10 @@ Provably secure schemes can be broken if the definition does not correspond to r
 
 Let us try to define the term "secure".
 
-- ❌ - "_No adversary can find the secret key, no matter what the ciphertext is._" Well, $\text{Enc}(k, x) = x$ provides this, but is definitely not secure ;)
-- ❌ - "_No adversary can find the plaintext from the ciphertext._" $\text{Enc}(k, x) = \text{last half of } x$ satisfies this, but is obviously not secure.
-- ❌ - "_No adversary can determine and character of the plaintext that correspond to the ciphertext._" This sounds good, but the adversary can still learn which characters of the alphabet is used, which may be bad. For example if the adversary learns the characters $e, h, y$ and the message is 3 letters, it is probably "hey".
-- ✔️ - "_No adversary can compute any function of the plaintext from the ciphertext_" Now that sounds formal, but we need to be more formal!
+- ❌ - "_No adversary can find the secret key, no matter what the ciphertext is._": Well, $\text{Enc}(k, x) = x$ provides this, but is definitely not secure ;)
+- ❌ - "_No adversary can find the plaintext from the ciphertext._": $\text{Enc}(k, x) = \text{last half of } x$ satisfies this, but is obviously not secure.
+- ❌ - "_No adversary can determine and character of the plaintext that correspond to the ciphertext._": This sounds good, but the adversary can still learn which characters of the alphabet is used, which may be bad. For example if the adversary learns the characters $e, h, y$ and the message is 3 letters, it is probably "hey".
+- ✔️ - "_No adversary can compute any function of the plaintext from the ciphertext_": Now that sounds formal, but we need to be more formal!
 
 _NOT:_ $F(m)=|m|$ is a function of plaintext that gives its length. It is often very hard to hide this, so the last bullet often allows this function to be computable.
 
@@ -68,13 +68,13 @@ This experiment defines a distribution on the ciphertext, as such the random var
 _EXAMPLE:_ Consider the shift cipher on English alphabet, $\forall k \in \{0, 1, \ldots, 25\}: \Pr[K=k] = 1/26$. Suppose $\Pr[M=\text{"one"}] = 1/2, \Pr[M=\text{"ten"}] = 1/2$. What is $\Pr[C=\text{"rgh"}]$?
 
 $$
-\begin{align}
+\begin{align*}
 \Pr[C=\text{"rgh"}]&= \\
 &= \Pr[C=\text{"rgh"} \mid M=\text{"one"}]\times\Pr[M=\text{"one"}] \\
 &+ \Pr[C=\text{"rgh"} \mid M=\text{"ten"}]\times\Pr[M=\text{"ten"}] \\
 &= \frac{1}{26} \times \frac{1}{2} + 0 \times \frac{1}{2} \\
 &= \frac{1}{52}
-\end{align}
+\end{align*}
 $$
 
 ```

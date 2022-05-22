@@ -1,4 +1,4 @@
-$fontFamily: Oxygen, Verdana, Arial, sans-serif;
+$fontFamily: Noto Sans, Verdana, Arial, sans-serif;
 $themeColor: #202123;
 
 body {
@@ -89,9 +89,11 @@ $container-width: max(60%, 350px);
 // Markdown converted to HTML will follow this style
 
 .markdown {
+  overflow-y: scroll;
   a {
     color: inherit;
   }
+
   h1 {
     font-size: 2rem;
     text-decoration: underline;
@@ -104,5 +106,17 @@ $container-width: max(60%, 350px);
     margin: auto;
 
     font-family: $fontFamily;
+  }
+
+  table {
+    margin: auto;
+    font-family: $fontFamily;
+
+    td,
+    th {
+      border-bottom: 1px solid #ddd;
+      padding: 8px 12px;
+      text-align: left;
+    }
   }
 }

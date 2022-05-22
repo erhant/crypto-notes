@@ -18,7 +18,7 @@ const Home: NextPage<{
         {documents.length > 0 ? (
           documents.map((d, i) => (
             <div key={i} className="preview">
-              <Link href={d.slug} passHref>
+              <Link href={"/" + d.slug} passHref>
                 <a>
                   <h1>
                     {d.order} - {d.title}

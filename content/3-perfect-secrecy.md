@@ -1,6 +1,6 @@
 ---
 title: "Perfect Secrecy"
-desc: "We give a formal definition of perfect secrecy, and shown that there is only one algorithm that can achieve it."
+desc: "We give a formal definition of perfect secrecy, and show that One-time Pad is the only algorithm that can achieve it."
 order: 3
 ---
 

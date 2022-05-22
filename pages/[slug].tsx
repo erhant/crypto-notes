@@ -47,7 +47,6 @@ export async function getStaticProps({
   const document = await getDocumentBySlug(params.slug)
   const content = await toHTML(document.content || "")
 
-  console.log("P:", params)
   return {
     props: {
       document: {

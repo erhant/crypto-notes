@@ -12,6 +12,7 @@ export default async function toHTML(markdown: string) {
   const result = await unified()
     .use(remarkParse)
     .use(remarkMath)
+    // @ts-ignore
     .use(remarkMermaid) // NOTE: type error here?
     .use(remarkGfm)
     .use(remarkRehype)

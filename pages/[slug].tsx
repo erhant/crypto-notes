@@ -9,7 +9,7 @@ import Layout from "../components/layout"
 
 const Document: NextPage<{
   document: DocumentType
-}> = ({ document, next, prev }) => {
+}> = ({ document }) => {
   const router = useRouter()
 
   if (!router.isFallback && !document?.slug) {
@@ -26,8 +26,6 @@ const Document: NextPage<{
         <Layout>
           <>
             <article>
-              <h1>{prev?.title}</h1>
-              <h1>{next?.title}</h1>
               <div className="markdown" dangerouslySetInnerHTML={{ __html: document.content }} />
             </article>
           </>

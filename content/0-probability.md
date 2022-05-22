@@ -1,5 +1,5 @@
 ---
-title: "Probability"
+title: "Discrete Probability"
 desc: "Before we start, there is some probability background to cover."
 order: 0
 ---
@@ -114,3 +114,7 @@ $$
 $$
 
 When we plug in $n=1.2 \times B^{1/2}$ here we get $1 - e^{-0.72} = 0.53$. Surely, $0.53 > 1/2$, QED!
+
+# Entropy
+
+todo...

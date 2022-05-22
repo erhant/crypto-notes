@@ -1,122 +1,17 @@
-$fontFamily: Noto Sans, Verdana, Arial, sans-serif;
-$themeColor: #202123;
+@import "./variables.scss";
 
 body {
   font-family: $fontFamily;
   margin: 0 0 0 0;
+  background-color: white;
 }
 
-// Layout styles
-$container-width: max(60%, 350px);
-.layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  height: 100vh;
-
-  header {
-    background-color: #202123;
-    color: white;
-    padding: 10px 0 10px 0;
-
-    div {
-      width: $container-width;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      div {
-        &:first-of-type {
-          flex-grow: 1;
-        }
-      }
-
-      a {
-        margin: 0 5px 0 5px;
-      }
-    }
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px 0 15px 0;
-  }
-
-  main {
-    margin: auto;
-    width: $container-width;
-  }
-
-  div {
-    &:first-of-type {
-      flex-grow: 1;
-    }
-  }
+hr {
+  margin: 25px 0;
 }
 
-// link styles (<a>)
-.link {
-  color: inherit;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  &.title {
-    font-size: 2em;
-  }
-}
-
-// document previews (for the main-menu)
-.preview {
-  a {
-    color: $themeColor;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  p:first-of-type {
-    margin-top: -10px;
-  }
-}
-
-// Markdown converted to HTML will follow this style
-
-.markdown {
-  overflow-y: scroll;
-  a {
-    color: inherit;
-  }
-
-  h1 {
-    font-size: 2rem;
-    text-decoration: underline;
-  }
-
-  // mermaidJS markdown is converted to svg, this rule affects them
-  svg {
-    // https://stackoverflow.com/questions/8639383/how-do-i-center-an-svg-in-a-div
-    display: block;
-    margin: auto;
-
-    font-family: $fontFamily;
-  }
-
-  table {
-    margin: auto;
-    font-family: $fontFamily;
-
-    td,
-    th {
-      border-bottom: 1px solid #ddd;
-      padding: 8px 12px;
-      text-align: left;
-    }
-  }
-}
+@import "./link.scss";
+@import "./layout.scss";
+@import "./preview.scss";
+@import "./markdown.scss";
+@import "./welcome.scss";

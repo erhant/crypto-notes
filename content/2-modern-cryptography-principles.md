@@ -40,7 +40,7 @@ sequenceDiagram
 
 ```
 
-# Threat Models
+## Threat Models
 
 There are 4 threat models, with increasing attack power:
 
@@ -76,7 +76,3 @@ $$
 &= \frac{1}{52}
 \end{align*}
 $$
-
-```
-
-```

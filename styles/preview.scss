@@ -1,0 +1,33 @@
+// document previews (for the main-menu)
+.preview {
+  display: flex;
+  margin-top: -10px;
+
+  .order-no {
+    color: rgb(175, 175, 175);
+    width: max(5%, 25px);
+
+    &::after {
+      content: " ";
+      white-space: pre;
+    }
+  }
+
+  .preview-text {
+    flex-grow: 1;
+    width: calc(100% - max(5%, 25px));
+
+    a {
+      color: $themeColor;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      margin-top: -10px;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.link {
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.title {
+    font-size: 2em;
+  }
+}

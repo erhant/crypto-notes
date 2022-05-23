@@ -15,6 +15,7 @@ const dummyDocumentGrayMatter: DocumentType = {
   order: 0,
   content: "",
   slug: "",
+  tags: [],
 }
 /**
  * Generate the slug from path of a file.

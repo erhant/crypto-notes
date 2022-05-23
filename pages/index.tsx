@@ -45,6 +45,10 @@ const Home: NextPage<{
                     <h1>{d.title}</h1>
                   </a>
                 </Link>
+                {/* tags */}
+                {/* {d.tags.map((t, i) => (
+                  <span key={i}>{t}</span>
+                ))} */}
                 <p>{d.desc}</p>
               </div>
             </div>

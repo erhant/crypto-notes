@@ -1,6 +1,6 @@
 // Markdown converted to HTML will follow this style
 .markdown {
-  overflow-y: scroll;
+  overflow-y: auto;
   a {
     color: inherit;
   }
@@ -22,6 +22,7 @@
   table {
     margin: auto;
     font-family: $fontFamily;
+    border-collapse: collapse;
 
     td,
     th {

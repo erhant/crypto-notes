@@ -1,7 +1,8 @@
 ---
 title: "Modern Cryptography Principles"
-desc: "We look at the principles of modern cryptography, and define what a secure encryption is. We further define the threat models."
+desc: "We look at the principles of modern cryptography: (1) formal definitions, (2) assumptions and (3) proofs."
 order: 2
+tags: ["symmetric"]
 ---
 
 # Modern Cryptography Principles
@@ -12,7 +13,7 @@ order: 2
 
 Provably secure schemes can be broken if the definition does not correspond to reality, or if the assumptions are invalid. The best assumptions are ones that are old (thus still valid against test of time), simple (thus generic enough), and shared (thus general enough).
 
-## Formal Definition of Secure Encryption
+## 1: Formal Definition of Secure Encryption
 
 Let us try to define the term "secure".
 
@@ -23,26 +24,9 @@ Let us try to define the term "secure".
 
 _NOT:_ $F(m)=|m|$ is a function of plaintext that gives its length. It is often very hard to hide this, so the last bullet often allows this function to be computable.
 
-## Symmetric Ciphers
+## 2: Assumptions
 
-Here is an outline of what symmetric ciphers look like:
-
-```mermaid
-sequenceDiagram
-	actor Alice
-	actor Bob
-	Note over Alice,Bob: Both parties have k
-
-	%% encryption and decryption
-	Note over Alice: c #8592; Enc(k,m)
-	Alice ->> Bob: c
-	Note over Bob: m #8592; Dec(k,c)
-
-```
-
-## Threat Models
-
-There are 4 threat models, with increasing attack power:
+To make well assumptions, one usually considers threat models, i.e. how powerful is the adversary? There are 4 threat models, with increasing attack power:
 
 1. **Ciphertext-only attack**: The adversary can attack just by looking at one (or many) ciphertexts.
 2. **Known-plaintext attack**
@@ -51,28 +35,12 @@ There are 4 threat models, with increasing attack power:
 
 A good security definition against **ciphertext-only attack** is: "regardless of any prior information the attacker has about the plaintext, the ciphertext should leak no additional information about the plaintext."
 
-## Probability Distribution for Encryption Scheme
+## 3. Proofs
 
-Let $M$ be a random variable (r.v.) denoting the value of a message. $M$ ranges over the message space $\mathcal{M}$. For example, $\Pr[M=\text{"attack"}] = 0.7$, $\Pr[M=\text{"dont"}] = 0.3$.
+Typical proof of a scheme $X$ will show using a constructive argument, that if $X$ is broken, some **assumption** $Y$ will be violated.
 
-Let $K$ be a r.v. denoting the key denoting the value of a key. $K$ ranges over the key space $\mathcal{K}$. Notice that $M$ and $K$ are independent random variables!
+- If there exists an algorithm $A$ for breaking $X$, then we can construct an algorithm $B$ to break the assumption $Y$.
+- If $A$ is _efficient_ (i.e. runs in probabilistic polynomial time) then so is $B$.
+- The proof cannot present $A$ (in which case $X$ is already broken) but must present the "code" of $B$. We always assume $A$ exists.
 
-Fix some encryption scheme $(\text{Gen}, \text{Enc}, \text{Dec})$ and some distribution for $M$. Consider the following experiment:
-
-1. Choose a message $m$ according to the given distribution.
-2. Generate a key $k$ using $\text{Gen}$.
-3. Compute $c \gets \text{Enc}(k,m)$. Here, $c$ will be a random value denoting the result of this experiment.
-
-This experiment defines a distribution on the ciphertext, as such the random variable can be denoted as $C$.
-
-_EXAMPLE:_ Consider the shift cipher on English alphabet, $\forall k \in \{0, 1, \ldots, 25\}: \Pr[K=k] = 1/26$. Suppose $\Pr[M=\text{"one"}] = 1/2, \Pr[M=\text{"ten"}] = 1/2$. What is $\Pr[C=\text{"rgh"}]$?
-
-$$
-\begin{align*}
-\Pr[C=\text{"rgh"}]&= \\
-&= \Pr[C=\text{"rgh"} \mid M=\text{"one"}]\times\Pr[M=\text{"one"}] \\
-&+ \Pr[C=\text{"rgh"} \mid M=\text{"ten"}]\times\Pr[M=\text{"ten"}] \\
-&= \frac{1}{26} \times \frac{1}{2} + 0 \times \frac{1}{2} \\
-&= \frac{1}{52}
-\end{align*}
-$$
+These all **assume** that if assumption $Y$ holds, $X$ is secure.

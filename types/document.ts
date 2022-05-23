@@ -3,6 +3,7 @@ type DocumentType = {
   desc: string
   order: number
   slug: string // URL slug,
+  tags: string[]
   content: string // HTML content
 }
 

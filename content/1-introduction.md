@@ -1,12 +1,26 @@
 ---
 title: "Introduction"
-desc: "We first get to know the plaintext, ciphertext and key spaces. We also provide a quick background of historic ciphers."
+desc: "We meet symmetric ciphers, and get to know the plaintext, ciphertext and key spaces. We also provide a quick background of ciphers from history."
 order: 1
+tags: ["background"]
 ---
+
+```mermaid
+sequenceDiagram
+	actor Alice
+	actor Bob
+	Note over Alice,Bob: Both parties have k #8592; Gen(1^#lambda;)
+
+	%% encryption and decryption
+	Note over Alice: c #8592; Enc(k,m)
+	Alice ->> Bob: c
+	Note over Bob: m #8592; Dec(k,c)
+
+```
 
 # Introduction
 
-We have three important things:
+An outline of how a symmetric cipher works is given above. There are 3 main components:
 
 - Key Generator (over a **key space** $\mathcal{K}$)
 
@@ -32,11 +46,9 @@ We also expect $m=\text{Dec}(k,\text{Enc}(k,m))$, this is known as **correctness
 
 Note that if we know $\text{Gen}$ we learn the key space. With that, if we know message space and $\text{Enc}$, then we will know the ciphertext space as well.
 
-_NOT:_ Message is also known as _plaintext_.
+_NOTE:_ Message is also known as _plaintext_.
 
-_NOT:_ Private key, Secret key, Symmetric key. These all mean the same thing usually.
-
-_NOT:_ Space complexity should be upper bounded by Time complexity. You can't be using more complex space than time, because you should also spend time accessing/modifying whatever data you store.
+_NOTE:_ Private key, Secret key, Symmetric key. These all mean the same thing usually.
 
 ## Old Ciphers
 
@@ -79,3 +91,29 @@ All of the examples so far has been "substituion ciphers" where characters are m
 ### Digital Ciphers
 
 Not that long ago there was [DES](https://en.wikipedia.org/wiki/Data_Encryption_Standard) (1974), [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) (aka Rijndael, 2001) and [Salsa20](https://en.wikipedia.org/wiki/Salsa20) (2008).
+
+## Probability Distribution for Encryption Scheme
+
+Let $M$ be a random variable (r.v.) denoting the value of a message. $M$ ranges over the message space $\mathcal{M}$. For example, $\Pr[M=\text{"attack"}] = 0.7$, $\Pr[M=\text{"dont"}] = 0.3$.
+
+Let $K$ be a r.v. denoting the key denoting the value of a key. $K$ ranges over the key space $\mathcal{K}$. Notice that $M$ and $K$ are independent random variables!
+
+Fix some encryption scheme $(\text{Gen}, \text{Enc}, \text{Dec})$ and some distribution for $M$. Consider the following experiment:
+
+1. Choose a message $m$ according to the given distribution.
+2. Generate a key $k$ using $\text{Gen}$.
+3. Compute $c \gets \text{Enc}(k,m)$. Here, $c$ will be a random value denoting the result of this experiment.
+
+This experiment defines a distribution on the ciphertext, as such the random variable can be denoted as $C$.
+
+_EXAMPLE:_ Consider the shift cipher on English alphabet, $\forall k \in \{0, 1, \ldots, 25\}: \Pr[K=k] = 1/26$. Suppose $\Pr[M=\text{"one"}] = 1/2, \Pr[M=\text{"ten"}] = 1/2$. What is $\Pr[C=\text{"rgh"}]$?
+
+$$
+\begin{align*}
+\Pr[C=\text{"rgh"}]&= \\
+&= \Pr[C=\text{"rgh"} \mid M=\text{"one"}]\times\Pr[M=\text{"one"}] \\
+&+ \Pr[C=\text{"rgh"} \mid M=\text{"ten"}]\times\Pr[M=\text{"ten"}] \\
+&= \frac{1}{26} \times \frac{1}{2} + 0 \times \frac{1}{2} \\
+&= \frac{1}{52}
+\end{align*}
+$$

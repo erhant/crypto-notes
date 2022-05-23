@@ -51,7 +51,6 @@ export async function getStaticProps({
     props: {
       document: {
         ...document,
-        slug: params.slug,
         content,
       },
     },

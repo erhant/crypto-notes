@@ -52,6 +52,8 @@ $$
 
 Since $2^{-n}$ is negligible, $t(n)\times 2^{-n}$ is negligible and thus our scheme is asymptotically indistinguishable.
 
+_NOTE_: A **brute-force attack** requires $|\mathcal{K}|$ time to succeed with probability at most 1; a **key-guessing attack** requires $\mathcal{O}(1)$ time to succeed with probability $1/|\mathcal{K}|$.
+
 ## Semantic Security
 
 There is yet another definition for asymptotic secrecy, which is cool but also slightly harder to work with.

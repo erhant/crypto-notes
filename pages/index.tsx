@@ -43,7 +43,7 @@ const Home: NextPage<{
                 COMP443 - Modern Cryptography
               </a>{" "}
               by Dr. Alptekin Küpçü, the material from the book &quot;Introduction to Modern Cryptography: Principles
-              and Protocols, 2nd Edition&quot; by Jonathan Katz & Yehuda Lindell, and several of Dan Boneh's
+              and Protocols, 2nd Edition&quot; by Jonathan Katz & Yehuda Lindell, and several of Dan Boneh&apos;s
               cryptography lectures.
             </p>
             {cryptoDocs.map((d, i) => (

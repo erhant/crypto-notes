@@ -148,3 +148,10 @@ _EXAMPLE:_ The following functions are **negligible**:
 - $1/n^{\log n}$
 
 _NOTE:_ A polynomial times polynomial functions is a polynomial; however, a polynomial times negligible is a negligible function.
+
+## Negligible vs Noticable
+
+- A positive function $f(n)$ is negligible if and only if for any positive polynomial $p(n)$ such that $p(n)f(n)$ converges to 0.
+- A positive function $f(n)$ is noticable if and only if there exists a positive polynomial $p(n)$ such that $p(n)f(n)$ goes to $\infty$.
+
+Note that for negligible we use "for any", but for noticable we use "there exists".

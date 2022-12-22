@@ -79,8 +79,8 @@ sequenceDiagram
 	note over P: knows x, w
 	note over V: knows x
 	loop interactions
-	P ->> V:
-	V ->> P:
+	P ->> V: send commitments and stuff
+	V ->> P: send queries and stuff
 	end
 	note over V: accept or reject
 ```

@@ -53,7 +53,7 @@ sequenceDiagram
 	actor V as Verifier
 
 	note over P: q(X) ← f(X) / (X^k - 1)
-  P ->> V: q
+  	P ->> V: q
 	note over V: r ← F_p
 	V ->> P: r
 	note over P: evaluate q(r) and f(r)

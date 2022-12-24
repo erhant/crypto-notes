@@ -16,11 +16,13 @@ If $a$ divides $b$, we show this as $a \mid b$. Note that this does not mean $b/
 - $2 \mid b$ is a fancy way of saying $b$ is even.
 
 **Q:** Show that $6 \mid n(n+1)(n+2)$ for any $n$.
+
 **A:** We can prove with the argument that one of those terms is even and another is divisible by 3. However, there is a better argument. We can consider the binomial $\binom{n+2}{3}$, which is the number of ways to choose 3 elements from $n+2$ values.
 
 This gives $(n + 2) \times (n + 1) \times (n)$ to choose 3 elements, and they can be ordered in 6 different ways so we divide by 6. Since we are counting the choices here, the result is definitely an integer. As such, 6 divides $n(n+1)(n+2)$.
 
 **Q:** Show that $8 \mid n^2 - 1$ if $n$ is odd.
+
 **A:** Rewrite $n$ as $2m+1$ as it is odd. Now, $n^2-1 = 4(m^2 + m)$. 4 is there alright, and if we can show that $m^2 + m$ is even then the whole thing is divisible by 8. Well, rewrite that as $m(m+1)$ and one of those is definitely even.
 
 Set of $x$ such that $d \mid x$ is called ideal. For the integers ($\mathbb{Z}$), ideal means "closed under + and -".

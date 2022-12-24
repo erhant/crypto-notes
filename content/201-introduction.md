@@ -56,13 +56,13 @@ _NOTE:_ $\log x$ throughout this course always refers to natural logarithm.
 Every integer is a product of primes in a unique way (up to order). **Euler** interpreted this as a factorization of the Zeta function:
 
 $$
-\zeta(s) = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + ... = \frac{1}{1 - 2^{-s}}\times\frac{1}{1 - 3^{-s}}\times\frac{1}{1 - 5^{-s}}\times \ldots
+\zeta(s) = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^s} + \frac{1}{4^s} + \ldots = \frac{1}{1 - 2^{-s}}\times\frac{1}{1 - 3^{-s}}\times\frac{1}{1 - 5^{-s}}\times \ldots
 $$
 
 This makes a lot of sense if you think the geometric series of the product terms:
 
 $$
-\zeta(s) = (1 + \frac{1}{2^s} + \frac{1}{4^s} + ...)(1 + \frac{1}{3^s} + \frac{1}{9^s} + ...)(1 + \frac{1}{5^s} + \frac{1}{25^s})\ldots
+\zeta(s) = \left(1 + \frac{1}{2^s} + \frac{1}{4^s} + \ldots\right)\left(1 + \frac{1}{3^s} + \frac{1}{9^s} + \ldots\right)\left(1 + \frac{1}{5^s} + \frac{1}{25^s}\right)\ldots
 $$
 
 You can choose for example $\frac{1}{2^s}$, $\frac{1}{9^s}$ and 1 everywhere else, to obtain $\frac{1}{18^s}$.

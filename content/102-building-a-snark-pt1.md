@@ -1,5 +1,5 @@
 ---
-title: "Building a SNARK, pt. I"
+title: "Building a SNARK - Part I"
 desc: "We look at building a SNARK in two steps: functional commitment scheme and an interactive oracle proof."
 order: 102
 tags: ["symmetric"]

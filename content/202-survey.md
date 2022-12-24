@@ -10,6 +10,7 @@ tags: ["symmetric"]
 # Congruences
 
 **Q:** Is 1234567 a square?
+
 **A:** No, because the last digit is not possible to be 7 for square numbers. So we kind of look at the number in modulo 10.
 
 $$
@@ -19,6 +20,7 @@ $$
 This notation is by **Gauss**, and it means that $a-b$ is divisible by $m$. In other words, $m \mid a-b$.
 
 **Q:** Can you solve $1000003 = x^2 + y^2$?
+
 **A:** You can realize that $x^2 \equiv 0,1 \mod 4$. Then $x^2 + y^2 \equiv (0,1) + (0,1) \equiv 0,1,2 \mod 4$. So, the number can not have 3 as the last digit, thus the equation does not have any integer solutions.
 
 ## Fermat’s Little Theorem

@@ -1,5 +1,5 @@
 ---
-title: "Building a SNARK, pt. II"
+title: "Building a SNARK - Part II"
 desc: "We continue to building our SNARK. We will look at PLONK poly-IOP here in particular."
 order: 103
 tags: ["symmetric"]
@@ -96,6 +96,13 @@ flowchart LR
 ```
 
 We would like to obtain a computation trace of this circuit evaluation. A computation trace is simply a table that shows the inputs, and the state of each gate (input1, input2, output). The output of the circuit is the output of the last gate in the circuit. Here is the computation trace for the circuit evaluation above:
+
+|            |     |     |     |
+| ---------- | --- | --- | --- |
+| **Inputs** | 5   | 6   | 1   |
+| **Gate 0** | 5   | 6   | 11  |
+| **Gate 1** | 6   | 1   | 7   |
+| **Gate 2** | 11  | 7   | 77  |
 
 At this point, we can forget about the circuit and focus on proving that a computation trace is valid. Note that input count does not have to be equal to number of inputs & output of a gate.
 

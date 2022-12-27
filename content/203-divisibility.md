@@ -5,7 +5,7 @@ order: 203
 tags: ["symmetric"]
 ---
 
-[(video)](https://www.youtube.com/watch?v=mduJOLdKrak&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8&index=3)
+[(video)](https://www.youtube.com/watch?v=pVKhDtOjji8)
 
 # Divisibility
 

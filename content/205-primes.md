@@ -5,7 +5,7 @@ order: 205
 tags: ["symmetric"]
 ---
 
-[(video)](https://www.youtube.com/watch?v=mduJOLdKrak&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8&index=5)
+[(video)](https://www.youtube.com/watch?v=VRrP4US7idg)
 
 A prime $p$ is an integer $> 1$ not divisible by anything except $1$ and $p$. 1 is not a prime, because it is defined that way and it is very convenient to define it that way (although not everyone agree with them).
 

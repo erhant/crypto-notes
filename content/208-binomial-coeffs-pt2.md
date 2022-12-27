@@ -5,6 +5,8 @@ order: 208
 tags: ["symmetric"]
 ---
 
+[(video)](https://www.youtube.com/watch?v=KIvuGT5V1Fg)
+
 Let us look at binomial coefficients in modulo 2.
 
 ```c

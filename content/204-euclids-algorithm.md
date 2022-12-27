@@ -5,7 +5,7 @@ order: 204
 tags: ["symmetric"]
 ---
 
-[(video)](https://www.youtube.com/watch?v=mduJOLdKrak&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8&index=4)
+[(video)](https://www.youtube.com/watch?v=R-O8j7FHEXI)
 
 # Euclid's Algorithm to Solve Equations
 

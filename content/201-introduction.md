@@ -5,7 +5,7 @@ order: 201
 tags: ["symmetric"]
 ---
 
-[(video)](https://www.youtube.com/watch?v=EzE6it9kAsI&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8&index=1)
+[(video)](https://www.youtube.com/watch?v=EzE6it9kAsI)
 
 # Primes
 

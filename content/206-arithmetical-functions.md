@@ -5,7 +5,7 @@ order: 206
 tags: ["symmetric"]
 ---
 
-[(video)](https://www.youtube.com/watch?v=mduJOLdKrak&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8&index=6)
+[(video)](https://www.youtube.com/watch?v=skTslDpxeL8)
 
 An arithmetical function is just a function defined on positive integers. $f : 1, 2, 3, \ldots \to \mathbb{R}$ or some other domain.
 

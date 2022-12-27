@@ -5,7 +5,7 @@ order: 101
 tags: ["symmetric"]
 ---
 
-[(notes taken from here)](https://www.youtube.com/watch?v=h-94UhJLeck&list=PLj80z0cJm8QErn3akRcqvxUsyXWC81OGq&index=1&t=14s)
+[(video)](https://www.youtube.com/watch?v=h-94UhJLeck)
 
 # SNARK
 

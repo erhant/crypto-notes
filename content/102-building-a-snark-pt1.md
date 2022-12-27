@@ -5,6 +5,8 @@ order: 102
 tags: ["symmetric"]
 ---
 
+[(video)](https://www.youtube.com/watch?v=J4pVTamUBvU)
+
 There are various paradigms on building SNARKs, but the general paradigm is two step:
 
 1. A **functional commitment scheme**, where most of cryptography takes place

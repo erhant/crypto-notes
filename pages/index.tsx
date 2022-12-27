@@ -79,7 +79,11 @@ const Home: NextPage<{
           <>
             <h1>Introduction to Number Theory</h1>
             <hr />
-            <p className="foreword">These are notes from lectures by Dr. Richard Borcherds in his YouTube channel.</p>
+
+            <p className="foreword">These are notes from lectures by Dr. Richard Borcherds in his{" "}
+              <a href="https://www.youtube.com/watch?v=EzE6it9kAsI&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8" target="_blank" rel="noreferrer">
+                YouTube channel
+              </a>.</p>
             {numberTheoryDocs.map((d, i) => (
               <DocumentView key={i} document={d} />
             ))}

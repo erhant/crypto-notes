@@ -5,7 +5,9 @@ order: 103
 tags: ["symmetric"]
 ---
 
-In this module, we will build a Poly-IOP called Plonk. Plonk + PCS will make up a SNARK, and optionally can be extended to a zk-SNARK.
+[(video)](https://www.youtube.com/watch?v=vxyoPM2m7Yg)
+
+We will build a Poly-IOP called Plonk. Plonk + PCS will make up a SNARK, and optionally can be extended to a zk-SNARK.
 
 # Key Observations
 

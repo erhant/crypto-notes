@@ -5,6 +5,8 @@ order: 207
 tags: ["symmetric"]
 ---
 
+[(video)](https://www.youtube.com/watch?v=TBolWCObRgg)
+
 We denote Binomial Coefficients as $\binom{n}{k}$ meaning ($n$ choose $k$) and it corresponds to number of $k$ element subsets of an $n$ element subset. For example, $\binom{5}{2} = 10$. Binomial (roughly means "two names") corresponds to sum of two things. This is where the coefficients comes from:
 
 $$

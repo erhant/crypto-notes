@@ -1,8 +1,8 @@
 ---
-title: "Pseduo-Random Functions & Generators"
-desc: "We describe pseudo-random functions and generators."
+title: 'Pseduo-Random Functions & Generators'
+desc: 'We describe pseudo-random functions and generators.'
 order: 7
-tags: ["symmetric"]
+cat: 'modern-cryptography'
 ---
 
 # Pseudo-random Functions

@@ -1,8 +1,8 @@
 ---
-title: "Introduction"
-desc: "We meet symmetric ciphers, and get to know the plaintext, ciphertext and key spaces. We also provide a quick background of ciphers from history."
+title: 'Introduction'
+desc: 'We meet symmetric ciphers, and get to know the plaintext, ciphertext and key spaces. We also provide a quick background of ciphers from history.'
 order: 1
-tags: ["background"]
+cat: 'modern-cryptography'
 ---
 
 ```mermaid

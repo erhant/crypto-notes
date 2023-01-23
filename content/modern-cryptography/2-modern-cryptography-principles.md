@@ -1,8 +1,8 @@
 ---
-title: "Modern Cryptography Principles"
-desc: "We look at the principles of modern cryptography: (1) formal definitions, (2) assumptions and (3) proofs."
+title: 'Modern Cryptography Principles'
+desc: 'We look at the principles of modern cryptography: (1) formal definitions, (2) assumptions and (3) proofs.'
 order: 2
-tags: ["symmetric"]
+cat: 'modern-cryptography'
 ---
 
 # Modern Cryptography Principles

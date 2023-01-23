@@ -1,8 +1,8 @@
 ---
-title: "Preliminaries"
-desc: "Before we start, there is some discrete probability, entropy and asymptotics background to cover."
+title: 'Preliminaries'
+desc: 'Before we start, there is some discrete probability, entropy and asymptotics background to cover.'
 order: 0
-tags: ["background"]
+cat: 'modern-cryptography'
 ---
 
 # Probability

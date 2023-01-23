@@ -1,8 +1,8 @@
 ---
-title: "Building a SNARK - Part II"
-desc: "We continue to building our SNARK. We will look at PLONK poly-IOP here in particular."
-order: 103
-tags: ["symmetric"]
+title: 'Building a SNARK - Part II'
+desc: 'We continue to building our SNARK. We will look at PLONK poly-IOP here in particular.'
+order: 3
+cat: 'zkhack'
 ---
 
 [(video)](https://www.youtube.com/watch?v=vxyoPM2m7Yg)

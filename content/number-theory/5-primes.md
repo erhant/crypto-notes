@@ -1,8 +1,8 @@
 ---
-title: "Primes"
-desc: "Primality tests, infinite primes, and prime gaps."
-order: 205
-tags: ["symmetric"]
+title: 'Primes'
+desc: 'Primality tests, infinite primes, and prime gaps.'
+order: 5
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=VRrP4US7idg)

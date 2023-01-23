@@ -1,8 +1,8 @@
 ---
-title: "Divisibility"
-desc: "We look at various divisibility algorithms, and also look at the good old Fibonacci."
-order: 203
-tags: ["symmetric"]
+title: 'Divisibility'
+desc: 'We look at various divisibility algorithms, and also look at the good old Fibonacci.'
+order: 3
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=pVKhDtOjji8)

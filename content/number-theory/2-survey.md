@@ -1,8 +1,8 @@
 ---
-title: "A Quick Survey of Number Theory"
-desc: "We look at various study fields under Number Theory."
-order: 202
-tags: ["symmetric"]
+title: 'A Quick Survey of Number Theory'
+desc: 'We look at various study fields under Number Theory.'
+order: 2
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=mduJOLdKrak)

@@ -1,8 +1,8 @@
 ---
-title: "Reduction Proofs"
-desc: "We describe how reduction proofs are made."
+title: 'Reduction Proofs'
+desc: 'We describe how reduction proofs are made.'
 order: 5
-tags: ["symmetric"]
+cat: 'modern-cryptography'
 ---
 
 # Reduction Proofs

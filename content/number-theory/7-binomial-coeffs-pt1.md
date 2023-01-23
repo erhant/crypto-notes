@@ -1,8 +1,8 @@
 ---
-title: "Binomial Coefficients - Part I"
-desc: "See how cool the number of ways you can choose some elements from a set becomes."
-order: 207
-tags: ["symmetric"]
+title: 'Binomial Coefficients - Part I'
+desc: 'See how cool the number of ways you can choose some elements from a set becomes.'
+order: 7
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=TBolWCObRgg)

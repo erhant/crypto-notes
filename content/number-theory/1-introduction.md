@@ -1,8 +1,8 @@
 ---
-title: "Introduction to Number Theory"
-desc: "Of course, everything begins with primes!"
-order: 201
-tags: ["symmetric"]
+title: 'Introduction to Number Theory'
+desc: 'Of course, everything begins with primes!'
+order: 1
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=EzE6it9kAsI)

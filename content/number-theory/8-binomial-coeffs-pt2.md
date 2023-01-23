@@ -1,8 +1,8 @@
 ---
-title: "Binomial Coefficients - Part II"
-desc: "Deeper into the Binomial hole: dividing a factorial, magnitude of a coefficient, Catalan Numbers."
-order: 208
-tags: ["symmetric"]
+title: 'Binomial Coefficients - Part II'
+desc: 'Deeper into the Binomial hole: dividing a factorial, magnitude of a coefficient, Catalan Numbers.'
+order: 8
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=KIvuGT5V1Fg)

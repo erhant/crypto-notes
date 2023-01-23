@@ -1,8 +1,8 @@
 ---
-title: "Custom Gates & Lookup Tables"
-desc: "Addition and multiplication is a bit too constricting, so we can build our custom gates. Furthermore, we can increase the performance via lookup tables!"
-order: 104
-tags: ["symmetric"]
+title: 'Custom Gates & Lookup Tables'
+desc: 'Addition and multiplication is a bit too constricting, so we can build our custom gates. Furthermore, we can increase the performance via lookup tables!'
+order: 4
+cat: 'zkhack'
 ---
 
 [(video)](https://www.youtube.com/watch?v=Uldlq35Se3k)

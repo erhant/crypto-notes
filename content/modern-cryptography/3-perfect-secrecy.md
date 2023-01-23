@@ -1,8 +1,8 @@
 ---
-title: "Perfect Secrecy"
-desc: "We give a formal definition of perfect secrecy & indistinguishability, and show that One-time Pad is the only algorithm that can achieve it."
+title: 'Perfect Secrecy'
+desc: 'We give a formal definition of perfect secrecy & indistinguishability, and show that One-time Pad is the only algorithm that can achieve it.'
 order: 3
-tags: ["symmetric"]
+cat: 'modern-cryptography'
 ---
 
 # Perfect Secrecy

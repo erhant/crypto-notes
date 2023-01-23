@@ -1,8 +1,8 @@
 ---
-title: "Building a SNARK - Part I"
-desc: "We look at building a SNARK in two steps: functional commitment scheme and an interactive oracle proof."
-order: 102
-tags: ["symmetric"]
+title: 'Building a SNARK - Part I'
+desc: 'We look at building a SNARK in two steps: functional commitment scheme and an interactive oracle proof.'
+order: 2
+cat: 'zkhack'
 ---
 
 [(video)](https://www.youtube.com/watch?v=J4pVTamUBvU)

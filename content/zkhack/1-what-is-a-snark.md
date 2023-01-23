@@ -1,8 +1,8 @@
 ---
-title: "What is a SNARK?"
-desc: "We begin by describing what a SNARK is, formally!"
-order: 101
-tags: ["symmetric"]
+title: 'What is a SNARK?'
+desc: 'We begin by describing what a SNARK is, formally!'
+order: 1
+cat: 'zkhack'
 ---
 
 [(video)](https://www.youtube.com/watch?v=h-94UhJLeck)

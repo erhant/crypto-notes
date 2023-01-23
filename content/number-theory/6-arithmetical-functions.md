@@ -1,8 +1,8 @@
 ---
-title: "Arithmetical Functions"
-desc: "Functions defined on positive integers; they are quite interesting."
-order: 206
-tags: ["symmetric"]
+title: 'Arithmetical Functions'
+desc: 'Functions defined on positive integers; they are quite interesting.'
+order: 6
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=skTslDpxeL8)

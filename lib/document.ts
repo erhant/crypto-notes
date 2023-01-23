@@ -1,28 +1,19 @@
-import fs from "fs"
-import { join } from "path"
-import matter from "gray-matter"
-import glob from "glob"
-import DocumentType from "../types/document"
-import { assert } from "console"
+import fs from 'fs';
+import {join} from 'path';
+import matter from 'gray-matter';
+import glob from 'glob';
+import {DocumentHeader, DocumentsCategorized, DocumentType} from '../types/document';
 
-const documentsDirectoryName = "content"
-const documentsDirectory = join(process.cwd(), documentsDirectoryName)
-const uniqueSluggifier = "___"
+const documentsDirectoryName = 'content';
+const documentsDirectory = join(process.cwd(), documentsDirectoryName);
+const uniqueSluggifier = '___'; // used for recursive directories
 
-const dummyDocumentGrayMatter: DocumentType = {
-  title: "",
-  desc: "",
-  order: 0,
-  content: "",
-  slug: "",
-  tags: [],
-}
 /**
  * Generate the slug from path of a file.
  * @param {string} path
  */
 function pathToSlug(path: string): string {
-  return path.slice(documentsDirectoryName.length + 1).replace(new RegExp("/", "g"), uniqueSluggifier)
+  return path.slice(documentsDirectoryName.length + 1).replace(new RegExp('/', 'g'), uniqueSluggifier);
 }
 
 /**
@@ -30,7 +21,7 @@ function pathToSlug(path: string): string {
  * @param {string} slug
  */
 function slugToPath(slug: string): string {
-  return slug.replace(new RegExp(uniqueSluggifier, "g"), "/")
+  return slug.replace(new RegExp(uniqueSluggifier, 'g'), '/');
 }
 
 /**
@@ -38,11 +29,11 @@ function slugToPath(slug: string): string {
  */
 function getDocumentPaths(): Promise<string[]> {
   return new Promise((resolve, reject) => {
-    glob(documentsDirectoryName + "/**/*.md", (err, files) => {
-      if (err) reject(err)
-      else resolve(files.map((f: string) => f))
-    })
-  })
+    glob(documentsDirectoryName + '/**/*.md', (err, files) => {
+      if (err) reject(err);
+      else resolve(files.map((f: string) => f));
+    });
+  });
 }
 
 /**
@@ -51,35 +42,51 @@ function getDocumentPaths(): Promise<string[]> {
  * @param {string} slug
  */
 export async function getDocumentBySlug(slug: string): Promise<DocumentType> {
-  return await getDocumentByPath(join(documentsDirectory, slugToPath(slug)))
+  return await getDocumentByPath(join(documentsDirectory, slugToPath(slug)));
 }
+
+/**
+ * Returns the entire document from the given path.
+ * @param path document path in file
+ * @returns a document
+ */
 export async function getDocumentByPath(path: string): Promise<DocumentType> {
-  const { data, content } = matter(fs.readFileSync(path, "utf8"))
-
-  // assert data has specified fields
-
-  // assert(
-  //   Object.keys(dummyDocumentGrayMatter).every((key) => {
-  //     Object.hasOwn(data, key)
-  //   }, `Gray-matter of ${path} is missing some fields.`)
-  // )
+  // parse the markdown
+  const {data, content} = matter(fs.readFileSync(path, 'utf8'));
 
   return {
-    ...data,
+    header: data as DocumentHeader,
     slug: pathToSlug(path),
     content,
-  } as DocumentType
+  };
 }
 
-export async function getAllDocuments() {
-  const paths = await getDocumentPaths()
+export async function getAllDocumentSlugs(): Promise<string[]> {
+  const paths = await getDocumentPaths();
+  return paths.map(pathToSlug);
+}
 
-  // read documents
-  const documents = []
-  for (let i = 0; i < paths.length; ++i) documents.push(await getDocumentByPath(paths[i]))
+/**
+ * Get all documents in the path, most likely called from the homepage.
+ * @returns a mapping of category name to documents
+ */
+export async function getAllDocumentHeadersWithSlugs(): Promise<DocumentsCategorized> {
+  const paths = await getDocumentPaths();
 
-  // sort them
-  documents.sort((p, q) => (p.order > q.order ? 1 : -1))
+  // read documents, grouping them by category
+  const documents: DocumentsCategorized = {};
+  for (let i = 0; i < paths.length; ++i) {
+    const doc = await getDocumentByPath(paths[i]);
+    if (!documents[doc.header.cat]) {
+      documents[doc.header.cat] = [];
+    }
+    documents[doc.header.cat].push([doc.header, doc.slug]);
+  }
 
-  return documents
+  // sort each category
+  for (const category in documents) {
+    documents[category].sort((p, q) => (p[0].order > q[0].order ? 1 : -1));
+  }
+
+  return documents;
 }

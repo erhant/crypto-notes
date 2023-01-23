@@ -1,8 +1,8 @@
 ---
-title: "Computational Secrecy"
-desc: "Turns out perfect is too good to be true, so now we relax our definitions a bit to fit the real world."
+title: 'Computational Secrecy'
+desc: 'Turns out perfect is too good to be true, so now we relax our definitions a bit to fit the real world.'
 order: 4
-tags: ["symmetric"]
+cat: 'modern-cryptography'
 ---
 
 # Computational Secrecy

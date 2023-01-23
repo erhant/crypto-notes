@@ -1,8 +1,8 @@
 ---
 title: "Euclid's Algorithm"
 desc: "Find out how to calculate greatest-common-divisor using Euclid's Algorithm."
-order: 204
-tags: ["symmetric"]
+order: 4
+cat: 'number-theory'
 ---
 
 [(video)](https://www.youtube.com/watch?v=R-O8j7FHEXI)

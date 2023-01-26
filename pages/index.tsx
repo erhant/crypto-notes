@@ -16,8 +16,8 @@ const categoryInfo: {[category: string]: {title: string; desc: string}} = {
   },
   zkhack: {
     // https://zkhack.dev/
-    title: 'Zero-Knowledge Proofs',
-    desc: 'My notes from ZKHACK modules. ',
+    title: 'Zero-Knowledge: ZKHACK Modules',
+    desc: 'My notes from ZKHACK modules.',
   },
   'number-theory': {
     // https://www.youtube.com/watch?v=EzE6it9kAsI&list=PL8yHsr3EFj53L8sMbzIhhXSAOpuZ1Fov8
@@ -26,8 +26,10 @@ const categoryInfo: {[category: string]: {title: string; desc: string}} = {
   },
   zklearning: {
     // https://zk-learning.org/
-    title: 'Zero-Knowledge Proofs MOOC - Spring 2023',
-    desc: 'My notes from ZKHACK modules. ',
+    title: 'Zero-Knowledge: ZKP MOOC Spring 2023',
+    desc: 'Summary of ZKP MOOC Spring 2023 lectures, which are a series of lectures given by Dr. Dan Boneh, Dr. Shafi Goldwasser, ' +
+     'Dr. Dawn Song, Dr. Justin Thaler and Dr. Yupeng Zhang. This course covers fundamental techniques to build ZKP protocols, ' +
+     'tools to implement ZKP for different computations, and different applications of ZKP in blockchain and other areas',
   },
 };
 
@@ -38,8 +40,8 @@ const Home: NextPage<{
   return (
     <>
       <Head>
-        <title>Cryptography Notes</title>
-        <meta name="description" content="My notes from the cryptography class." />
+        <title>Cryptonotes</title>
+        <meta name="description" content="My Cryptography notes." />
       </Head>
       <Layout>
         {categories.map(category => {

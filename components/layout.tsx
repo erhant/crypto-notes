@@ -25,7 +25,7 @@ const Layout: FC<{children: ReactNode}> = ({children}) => {
         <h4>
           Made with &hearts; by{' '}
           <a
-            href="https://github.com/erhant"
+            href="https://twitter.com/0xerhant"
             target="_blank"
             rel="noreferrer"
             style={{textDecoration: 'none', color: 'inherit'}}

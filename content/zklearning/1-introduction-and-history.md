@@ -1,6 +1,6 @@
 ---
 title: 'Introduction & History of ZKP'
-desc: 'Lecture 1 of zk-learning MOOC.'
+desc: 'A great introduction on what exactly makes a proof zero-knowledge, and how the whole conept came to be.'
 order: 1
 cat: 'zklearning'
 ---

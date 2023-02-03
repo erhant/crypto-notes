@@ -1,6 +1,6 @@
 ---
 title: 'Overview of Modern SNARK Constructions'
-desc: 'Lecture 2 of zk-learning MOOC.'
+desc: 'We look at the common paradigm of constructing a SNARK using functional commitment schemes and interactive oracle proofs.'
 order: 2
 cat: 'zklearning'
 ---

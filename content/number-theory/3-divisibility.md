@@ -102,7 +102,7 @@ The method to solve these equations is to literally guess the answer. That doesn
 
 With _ansatz_ we guess the form of the answer with some unknown coefficients. You could take a guess like $F_n = n^\lambda$, or perhaps $F_n = \lambda^n$ for some constant $\lambda$. The constants $a_1, a_2, \ldots$ should also be guessed in those. The latter guess seems to work quite nicely for Finite Difference equations.
 
-Looking at $F_n = F_{n-1} + F_{n-2}$, we have $\lambda^n = \lambda^{n-1} + \lambda^{n-2}$. So, $\lambda^2 = \lambda + 1$. The solutions are $\lambda = (1 \pm \sqrt{5}) / 2$. Hmm, that’s not cool because those are not integers. But we do not give up. What if the answer is a linear combination of these solutions?
+Looking at $F_n = F_{n-1} + F_{n-2}$, we have $\lambda^n = \lambda^{n-1} + \lambda^{n-2}$. So, $\lambda^2 = \lambda + 1$. The solutions are $\lambda = (1 \pm \sqrt{5}) / 2$. Hmm, that's not cool because those are not integers. But we do not give up. What if the answer is a linear combination of these solutions?
 
 $$
 a\left(\frac{1 + \sqrt{5}}{2}\right)^n + b\left(\frac{1 - \sqrt{5}}{2}\right)^n

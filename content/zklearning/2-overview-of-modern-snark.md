@@ -28,7 +28,7 @@ In the case of a zk-SNARK, the proof reveals nothing about $m$. zk-SNARKs have m
 - **Scalability**: Rollup systems with validity proofs
 - and a lot more commercial interest…
 
-Why is there so much commercial interest? Well, things go back to a paper [Babai-Fortnow-Levin-Szegedy’91] where they show that a single reliable PC can monitor the operation of a herd of supercomputers running unrealiable software.
+Why is there so much commercial interest? Well, things go back to a paper [Babai-Fortnow-Levin-Szegedy'91] where they show that a single reliable PC can monitor the operation of a herd of supercomputers running unrealiable software.
 
 This single reliable PC is a slow and expensive computer. An example of such a machine from today is actually a L1 Blockchain!
 
@@ -50,7 +50,7 @@ The initial attempts to this was made via C2PA, a standard of content provenance
 
 However, newspapers and press that display a picture often have to apply some post-processing, such as rescaling, cropping and gray-scaling. There is actually a list of allowed operations by Associated Press. Doing any of these will break the signature, as it can be though of as tampering.
 
-Here is the solution by [[Kang-Hashimoto-Stoica-Sun’22]](https://arxiv.org/abs/2211.04775) to this problem using zk-SNARKs: suppose that the machine that is doing the post-processing has the photo $P$ and some list of allowed operations $Ops$. Denote the original photo as $P_{orig}$ and $s$ as the signature. The editing software will attach a proof $\pi$ of claim: “I know a pair $(P_{orig}, s)$” such that:
+Here is the solution by [[Kang-Hashimoto-Stoica-Sun'22]](https://arxiv.org/abs/2211.04775) to this problem using zk-SNARKs: suppose that the machine that is doing the post-processing has the photo $P$ and some list of allowed operations $Ops$. Denote the original photo as $P_{orig}$ and $s$ as the signature. The editing software will attach a proof $\pi$ of claim: “I know a pair $(P_{orig}, s)$” such that:
 
 - $s$ is a valid C2PA signature on $P_{orig}$
 - $P$ is the result of applying $Ops$ to $P_{orig}$
@@ -122,13 +122,13 @@ sequenceDiagram
 	note over V: accept or reject
 ```
 
-Notice that the Verifier does not talk back to Prover, i.e. it does not interact with it! It just reads the generated proof and that’s all, making the entire thing non-interactive.
+Notice that the Verifier does not talk back to Prover, i.e. it does not interact with it! It just reads the generated proof and that's all, making the entire thing non-interactive.
 
 More formally, a NARK is a triple $(S, P, V)$:
 
 - $S(C) \to (pp, vp)$ is the preprocessing setup, generating public parameters for prover and verifier
 - $P(pp, x, w) \to \pi$ is the prover function, generating the proof given the public prover parameters, public inputs and the secret inputs (witness).
-- $V(vp, x, \pi) \to \{0, 1\}$ is the verification function, either accepting or rejecting a given proof $\pi$, along with the circuit’s public verifier parameters and public inputs.
+- $V(vp, x, \pi) \to \{0, 1\}$ is the verification function, either accepting or rejecting a given proof $\pi$, along with the circuit's public verifier parameters and public inputs.
 
 A technical point to be made here is that, all of these algorithms and the adversary are assumed to have an access to a **random oracle**. This is most likely due to Fiat-Shamir Paradigm we have learned in the previous lecture, but we will get to more details of this later.
 
@@ -142,7 +142,7 @@ $$
 \forall x , w : C(x, w) = 0 \implies \Pr[V(vp, x, P(pp, x, w)) = \text{accept}] = 1
 $$
 
-- **Soundness:** If the verifier accepts a proof, the prover should indeed know the argued knowledge. “Knowing” something is rather interesting to capture formally, but for now let’s say there is an extractor algorithm $E$ that can extract a valid $w$ from the prover.
+- **Soundness:** If the verifier accepts a proof, the prover should indeed know the argued knowledge. “Knowing” something is rather interesting to capture formally, but for now let's say there is an extractor algorithm $E$ that can extract a valid $w$ from the prover.
 
 $$
 V(vp, x, P(pp, x, w)) = \text{accept} \implies P \text{ knows } w : C(x, w) = 0
@@ -186,7 +186,7 @@ Let us again come back to the trivial proof, where $\pi = w$.
 - Prover sends $w$ to the verifier.
 - Verifier checks if $C(x, w) = 0$
 
-Why can’t there be a trivial SNARK? Well, there may be several reasons:
+Why can't there be a trivial SNARK? Well, there may be several reasons:
 
 - If $w$ is long, the proof size will be too large.
 - If $C(x, w)$ is taking lots of time, the verifier time will be too long.
@@ -330,8 +330,8 @@ A PCS is a functional commitment for the family $\mathcal{F} = \mathbb{F}_p^{(\l
 There are some example PCSs with different mechanisms:
 
 - Using basic elliptic curves: **Bulletproofs** (short proof, but verifier time is $\mathcal{O}(d)$)
-- Using bilinear groups: **KZG’10** (trusted setup), **Dory’20** (transparent)
-- Using groups of unknown order: **Dark’20**
+- Using bilinear groups: **KZG'10** (trusted setup), **Dory'20** (transparent)
+- Using groups of unknown order: **Dark'20**
 - Using hash functions only: based on FRI (long eval proofs)
 
 ### Trivial Commitment is bad!
@@ -385,11 +385,11 @@ sequenceDiagram
 	note over V: reject otherwise
 ```
 
-That’s cool and all, but wait, we talked about non-interactiveness the entire lecture; why are we making an interactive protocol right now? Well, $r$ here is the only interaction that a verifier makes to the prover. It is a “public coin”, just some coin-toss (or a series of tosses) given by the verifier to the prover for everyone to see.
+That's cool and all, but wait, we talked about non-interactiveness the entire lecture; why are we making an interactive protocol right now? Well, $r$ here is the only interaction that a verifier makes to the prover. It is a “public coin”, just some coin-toss (or a series of tosses) given by the verifier to the prover for everyone to see.
 
 Thanks to Fiat-Shamir Transform, we can transform interactive protocols of this nature into non-interactive proofs! More specifically, Fiat-Shamir Transform can take a “public-coin interactive protocol” which means all verifier randomness is public, and transform it into a non-interactive protocol.
 
-To be technical, Fiat-Shamir Transform isn’t safe to transform ALL interactive proofs of this nature, but it is good enough for our needs right now.
+To be technical, Fiat-Shamir Transform isn't safe to transform ALL interactive proofs of this nature, but it is good enough for our needs right now.
 
 Let $H :M \to R$ be a hash function. For the example above, the prover will generate $r := H(com_f, com_g)$ and this will be used as the random challenge. Since the verifier also has access to $com_f, com_g$ they can generate the same $r$ during verification. That is how the interactiveness is removed!
 
@@ -422,7 +422,7 @@ sequenceDiagram
 	note over V: verify^(f_{-s}, ..., f_t)(x, r_1, ..., r_(t-1))
 ```
 
-Let’s digest what is happening in this interactive proof:
+Let's digest what is happening in this interactive proof:
 
 1. The prover starts by sending an oracle for function $f_1$. In practice, this is a commitment to function $f_1$ which we may show as $\boxed{f_1}$.
 2. The verifier samples a uniformly random field element $r_1$, and sends it back to the prover.
@@ -466,7 +466,7 @@ sequenceDiagram
 	note over V: accept if x * q' = w
 ```
 
-I will explain how $f(Z)$ and $g(Z)$ are computed here, let’s dig in.
+I will explain how $f(Z)$ and $g(Z)$ are computed here, let's dig in.
 
 1. Prover computes two polynomials $f$ and $g$, a polynomial with roots in $W$ and $X$ respectively. It does that by the following:
    1. $f(Z) = \prod_{w \in W}(Z - w)$
@@ -475,7 +475,7 @@ I will explain how $f(Z)$ and $g(Z)$ are computed here, let’s dig in.
 3. Prover computes a quotient polynomial $q(Z) = f / g \in \mathbb{F}_p^{(\leq d)}[X]$, which is a polynomial that is the result of dividing $f$ by $g$. This is only a polynomial if $g$ has all the roots that $f$ has, and that implies $X \subseteq W$. That is a key point to understand in this proof.
    Let me give an example: $X = \{1, 2\}$ and $W = \{1, 2, 4\}$. Then, 1. $f(Z) = (Z - 1)(Z - 2)(Z - 4)$ 2. $g(Z) = (Z-1)(Z - 2)$ 3. $q(Z) = f / g = (Z-4)$ is a valid polynomial in the finite field!
 4. Prover sends oracles of $f$ and $q$ to the verifier. In practice, it uses a polynomial commitment scheme and sends commitments to these functions, $\boxed{f}$ and $\boxed{q}$.
-5. Verifier samples a uniform random variable $r$ from the finite field. It sends this to the prover, but the prover makes no use of it. There is a reason why it sends $r$ anyways: it is to make $r$ public! If the verifier didn’t send $r$, we would not be able to say that it is publicly known.
+5. Verifier samples a uniform random variable $r$ from the finite field. It sends this to the prover, but the prover makes no use of it. There is a reason why it sends $r$ anyways: it is to make $r$ public! If the verifier didn't send $r$, we would not be able to say that it is publicly known.
 6. Verifier queries the value of $\boxed{f}$ and $\boxed{q}$ at point $r$, and also computes $g(r)$. Denote these as $w, q', x$ respectively. Note that this querying happens via the polynomial commitment scheme in practice, so behind the scenes verifier sends $r$ to the prover, the prover evaluates it and sends back the result along with a proof that it is evaluated correctly and so on, check the previous section for this.
 7. Verifier checks if $x \times q' = w$. This is only possible if $q(Z) = f / g$ indeed, think of it like checking $f \times q = g$ in this example.
 
@@ -503,7 +503,7 @@ flowchart LR
 	B --> proof
 ```
 
-In practice, you wouldn’t want to write the entire circuit yourself. We use DSLs (domain-specific languages) to do that for us.
+In practice, you wouldn't want to write the entire circuit yourself. We use DSLs (domain-specific languages) to do that for us.
 
 Some DSL examples are:
 

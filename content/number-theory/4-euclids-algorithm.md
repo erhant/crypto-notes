@@ -41,7 +41,7 @@ Done! $x=-14, y=7$ and $z=1$.
 
 Again, we can only solve $ax + by + cz = n$ if and only if $(a,b,c) \mid n$. This actually works for an arbitrary number of variables!
 
-The **problem with Euclid's Algorithm** is that it is using "long division", which is slow and complicated. For large numbers, computers don’t really know how to do it, and you have to program it yourself. Even Intel [got it wrong back in the day](https://en.wikipedia.org/wiki/Pentium_FDIV_bug).
+The **problem with Euclid's Algorithm** is that it is using "long division", which is slow and complicated. For large numbers, computers don't really know how to do it, and you have to program it yourself. Even Intel [got it wrong back in the day](https://en.wikipedia.org/wiki/Pentium_FDIV_bug).
 
 ## Long Division
 

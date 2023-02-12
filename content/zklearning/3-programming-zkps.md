@@ -87,11 +87,11 @@ R1CS is a format for ZKP Arithmetic Circuit (AC). It is a very commonly used for
 - $w$ is a set of field elements $w_1, w_2, \ldots, w_{m-l-1}$
 - $\phi$ is made up of $n$ equations with the form $\alpha \times \beta = \gamma$ where $\alpha, \beta, \gamma$ are _affine combinations_ of variables mentioned in the above bullet points.
 
-Let’s see some examples of $\alpha \times \beta = \gamma$.
+Let's see some examples of $\alpha \times \beta = \gamma$.
 
 - $w_2 \times (w_3 - w_2 - 1) = x_1$ is okay.
 - $w_2 \times w_2 = w_2$ is okay.
-- $w_2 \times w_2 \times w_2 = x_1$ is NOT okay! You can’t have two multiplications like that here! So, what can we do? We could capture this operation with the help of an extra variable, let’s say $w_4$:
+- $w_2 \times w_2 \times w_2 = x_1$ is NOT okay! You can't have two multiplications like that here! So, what can we do? We could capture this operation with the help of an extra variable, let's say $w_4$:
   - $w_2 \times w_2 = w_4$ is okay.
   - $w_2 \times w_4 = x_1$ is okay, and these two together capture the equation above.
 
@@ -167,7 +167,7 @@ Circom is not an HDL for digital circuits, it is an HDL for R1CS. Wires make the
 
 ## Example: $z = x \times y$
 
-Let’s go over a basic example:
+Let's go over a basic example:
 
 ```ts
 template Multiply(){
@@ -186,12 +186,12 @@ component main {public [x]} = Multiply();
 //                      ^ explicitly state x to be public!
 ```
 
-Let’s analyze what is happening here:
+Let's analyze what is happening here:
 
 - A `template` is just a circuit (or a sub-circuit if imported by some other)
 - A `signal` is a wire, can be `input`, `output` or just some intermediate variable.
 - `<--` operation sets signal values.
-- `===` creates a constraint, which must be Rank-1. So, one side is linear and other is quadratic. You can’t do things like `x * x * x` because $x^3$ is not quadratic.
+- `===` creates a constraint, which must be Rank-1. So, one side is linear and other is quadratic. You can't do things like `x * x * x` because $x^3$ is not quadratic.
 - As a shorthand, `<==` does both at once in a single line instead of two lines.
 - You can also have `-->` and `==>` which work in a similar way.
 
@@ -224,7 +224,7 @@ Circom has very nice capabilities as demonstrated here!
 - You can have template arguments such as `n` here, that you hard-code when you are instantiating the component.
 - You can have arrays of signals.
 - You can have variables (defined with `var`). These are different from signals, they are mutable & are evaluated at compile time.
-- You can have loops, such as the good ol’ `for` loop.
+- You can have loops, such as the good ol' `for` loop.
 - You can also have `if` - `else` statements.
 - You can access index `i` in an array with `arr[i]`.
 
@@ -259,9 +259,9 @@ template IsZero() {
 component main {public [a, b]} = IsZero();
 ```
 
-Here, `NonZero` is a sub-circuit used by `IsZero`. Within `NonZero`, we are checking if some input is not 0. However, constraints only check for equality, we don’t have something like `a !=== b`. To check if something is non-zero, we can check if it has an inverse!
+Here, `NonZero` is a sub-circuit used by `IsZero`. Within `NonZero`, we are checking if some input is not 0. However, constraints only check for equality, we don't have something like `a !=== b`. To check if something is non-zero, we can check if it has an inverse!
 
-To do that, we do `inverse <-- 1 / n` but hey, this isn’t R1! Is that a problem? Well, `<--` is just an assignment operator, not a constraint! So, we can do such a thing here; in fact, signal assignment without constraints are a lot more capable than constrainted assignments. The constraints itself is in the next line: `1 === in * signal`, which is R1.
+To do that, we do `inverse <-- 1 / n` but hey, this isn't R1! Is that a problem? Well, `<--` is just an assignment operator, not a constraint! So, we can do such a thing here; in fact, signal assignment without constraints are a lot more capable than constrainted assignments. The constraints itself is in the next line: `1 === in * signal`, which is R1.
 
 Also notice that `IsZero` uses `NonZero` within, and it does that by instantiating the sub-circuit as `nz`. You can access the signals in a circuit with `.` operator, such as `nz.in`.
 
@@ -277,14 +277,14 @@ We would like to prove that we know the solution to a sudoku puzzle.
 
 The inputs will be given as 2-dimensional arrays of size $n \times n$. We should really like to write a generic template circuit that takes the board size $n$ as template argument.
 
-For now, let’s do an example for $n=9$. What will be our constraints though? Let’s list them one by one:
+For now, let's do an example for $n=9$. What will be our constraints though? Let's list them one by one:
 
 - The solution input should be composed of numbers in range $[1, 9]$.
 - The solution input should have rows where every numbers occurs only once.
 - The solution input should have columns where every numbers occurs only once.
 - The solution input should have $3\times3$ groups of cells (as in Sudoku) where every number occurs once in each group.
 
-Here is the circuit, along with it’s sub-circuits.
+Here is the circuit, along with it's sub-circuits.
 
 ```ts
 // Assert that two elements are not equal.
@@ -394,7 +394,7 @@ component main{public[puzzle]} = Sudoku(9);
 
 That is very cool, right?
 
-So yea, Circom is great and it has direct control over constraints. However, using a custom language has it’s own drawbacks. An alternative is to use an already known high-level language (e.g. Rust, Go) and have a library to help you write circuits in there.
+So yea, Circom is great and it has direct control over constraints. However, using a custom language has it's own drawbacks. An alternative is to use an already known high-level language (e.g. Rust, Go) and have a library to help you write circuits in there.
 
 # Tutorial: Arkworks - Using a Library
 
@@ -433,7 +433,7 @@ cs.constraint(lc_A, lc_B, lc_C)
 // adds a constraint lc_A * lc_B = lc_C
 ```
 
-These are pretty high-level, so let’s take a look at a more realistic example.
+These are pretty high-level, so let's take a look at a more realistic example.
 
 ```rust
 fn and(cs: ConstraintSystem, a: Var, b: Var) -> Var {
@@ -481,7 +481,7 @@ At this point in lecture, we have an Arkworks tutorial. Please see the lecture i
 
 # Tutorial: ZoKrates - Compiling Programs to Circuits
 
-In the Circom example, we wrote the circuit ourselves. In the Arkworks example, we used a nice high-level language but still had to explicitly specify the wiring and constraints. What if we could have a programming language, that takes in a program and compiles it to R1CS with all it’s wires and constraints?
+In the Circom example, we wrote the circuit ourselves. In the Arkworks example, we used a nice high-level language but still had to explicitly specify the wiring and constraints. What if we could have a programming language, that takes in a program and compiles it to R1CS with all it's wires and constraints?
 
 Meet ZoKrates, a tool that does what we have just described.
 
@@ -530,7 +530,7 @@ We have seen that there are generally 3 options:
   - **pros**: clear constraint & elegant syntax
   - **cons**: hard to learn & limited abstraction
 - **Library**: a library for describing circuit synthesis
-  - **pros**: clear constraint & as expressive as it’s host language
+  - **pros**: clear constraint & as expressive as it's host language
   - **cons**: need to know that language & few optimizations
 - **PL + Compiler**: a language, compiled to a circuit
   - **pros**: easiest to learn & elegant syntax

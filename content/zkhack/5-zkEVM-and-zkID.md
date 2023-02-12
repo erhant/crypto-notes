@@ -60,7 +60,7 @@ flowchart LR
 This way, the output will be the input on the next “clock”. We can represent this circuit as:
 
 $$
-C’ = (A+B)\times C
+C' = (A+B)\times C
 $$
 
 We would like to work with Polynomials though. Let us represent this with polynomials then:
@@ -87,8 +87,8 @@ flowchart LR
 
 This circuit defines the following constraints:
 
-- $b’ = a + b$
-- $a’ = b$
+- $b' = a + b$
+- $a' = b$
 
 We need to express these polynomial entities in some way. At Polygon zkEVM, they have developed [PIL: Polynomial Identity Language](https://wiki.polygon.technology/docs/zkEVM/PIL/introduction/). Let us write the PIL for this Fibonacci circuit:
 
@@ -162,7 +162,7 @@ There are two big groups of identities:
 - **Physical**: Documents like Passport. Driver License. Diploma, and such. Mostly paper documents.
 - **Digital**: We can have three groups to consider in the digital identity world.
   - **Centralized Identities (Siloed)**: A separate email & password to login websites, one for each of them.
-  - **Federated Identities**: Uses don’t want a separate identity for each website, so they do this only once (e.g. Google, Facebook) and they use this to access websites.
+  - **Federated Identities**: Uses don't want a separate identity for each website, so they do this only once (e.g. Google, Facebook) and they use this to access websites.
   - **Self-Sovereign Identities**: Also known as Decentralized Identities, in this case the user has control over their own digital identity. They share this identity with others on request. This is more like the Web3.0 way of doing things.
 
 ## Triangle of Trust + Blockchain
@@ -178,18 +178,18 @@ Verifier -.- Issuer
 
 ```
 
-In this diagram, a User can be an actual User, or it could be group of entities, machines, whatever; it’s digital identity in the end!
+In this diagram, a User can be an actual User, or it could be group of entities, machines, whatever; it's digital identity in the end!
 
 For the ZKP (zero-knowledge proof) to work, we need:
 
 - Private Data
 - Public Data
 
-Actual claim data (e.g. I am above 18 years old) is stored on the user’s device, but the commitment to these claims are stored on the blockchain. For this, PolygonID uses a Merkle Tree and stores only the root of the tree of claims in the blockchain. What if you lost your phone, that has the digital identity data (claims)? In this case, only the Issuer can revoke the claim.
+Actual claim data (e.g. I am above 18 years old) is stored on the user's device, but the commitment to these claims are stored on the blockchain. For this, PolygonID uses a Merkle Tree and stores only the root of the tree of claims in the blockchain. What if you lost your phone, that has the digital identity data (claims)? In this case, only the Issuer can revoke the claim.
 
 ## Polygon ID
 
-In the blockchain, PolygonID stores the identity state in a smart contract. All Issuer’s use this same contract. It is the hash of three Merkle Tree roots:
+In the blockchain, PolygonID stores the identity state in a smart contract. All Issuer's use this same contract. It is the hash of three Merkle Tree roots:
 
 - **Claims Tree**: This tree is Private, only the Issuer has access to it.
   - Claims Schema
@@ -219,4 +219,4 @@ Here is an example circuit:
 
 _Note_: They are using Groth16. They have made a generic circuit that handles many many operations within. The operation itself is given as a public variable. Groth16 also helps generate these proofs on Mobile phones! They think it will take around 1 second to generate the proof.
 
-_Note_: They aim to expand the queries (such as `eq`, `lt`) to provide more functionality. They are also developing a platform for Issuer’s to onboard the PolygonID without worrying about key-management, and they can provide validator nodes for the blockchain that hosts the smart contract for verification. They also plan on providing KYC for this!
+_Note_: They aim to expand the queries (such as `eq`, `lt`) to provide more functionality. They are also developing a platform for Issuer's to onboard the PolygonID without worrying about key-management, and they can provide validator nodes for the blockchain that hosts the smart contract for verification. They also plan on providing KYC for this!

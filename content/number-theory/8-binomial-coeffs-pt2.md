@@ -185,7 +185,7 @@ $$
 \left[\frac{2n}{p^3}\right] - \left[\frac{n}{p^3}\right] - \left[\frac{n}{p^3}\right]
 $$
 
-and so on… However, notice that each of these rows are either 1 or 0. Recall that in our condition $p^k \leq 2n$, so the integer part of $[2n/p]$ could only be 1 if $p = 2n$. In that case, we would have $1-0-0 = 1$. If $p < 2n$ then we just have $0-0-0=0$ and so the result can only be 1 or 0. **TODO: I didn’t understand this part**
+and so on… However, notice that each of these rows are either 1 or 0. Recall that in our condition $p^k \leq 2n$, so the integer part of $[2n/p]$ could only be 1 if $p = 2n$. In that case, we would have $1-0-0 = 1$. If $p < 2n$ then we just have $0-0-0=0$ and so the result can only be 1 or 0. **TODO: I didn't understand this part**
 
 So we take the logs,
 

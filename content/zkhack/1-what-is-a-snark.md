@@ -70,7 +70,7 @@ Consider a public arithmetic circuit $C(x, w) \to \mathbb{F}$ where
 - $x$ is a public statement in $\mathbb{F}^n$
 - $w$ is a secret witness in $\mathbb{F}^m$
 
-There will be a Prover with access to $x, w$ and a Verifier with access to $x$. Prover’s goal is to convince a Verifier that $\exists w$ s.t. $C(x, w) = 0$.
+There will be a Prover with access to $x, w$ and a Verifier with access to $x$. Prover's goal is to convince a Verifier that $\exists w$ s.t. $C(x, w) = 0$.
 
 ```mermaid
 sequenceDiagram
@@ -117,7 +117,7 @@ For a preprocessing argument system to be **succinct**, it needs to have the fol
 - $\text{time}(V) = \mathcal{O}(|x|, \log(|C|), \lambda)$ meaning that the time to verify should be logarithmic in the size of circuit, and linear with the size of the statement.
 - $\lambda$ here is the security parameter (e.g. 128 for 128-bit security). It is mostly omitted from the complexity notation, or something like $\mathcal{O}_\lambda(\log(|C|))$ is used.
 
-Note that with these constraints, the verifier does not have enough time to read $C$ itself, as it can’t be done in time $\log(|C|)$.
+Note that with these constraints, the verifier does not have enough time to read $C$ itself, as it can't be done in time $\log(|C|)$.
 
 So in short, a zk-SNARK has all 4 properties above: **Complete**, **Knowledge Sound**, **Zero-Knowledge**, **Succinct**. We can go a bit more formal for the knowledge-soundness and zero-knowledge properties.
 

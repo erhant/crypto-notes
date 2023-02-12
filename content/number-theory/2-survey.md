@@ -23,7 +23,7 @@ This notation is by **Gauss**, and it means that $a-b$ is divisible by $m$. In o
 
 **A:** You can realize that $x^2 \equiv 0,1 \mod 4$. Then $x^2 + y^2 \equiv (0,1) + (0,1) \equiv 0,1,2 \mod 4$. So, the number can not have 3 as the last digit, thus the equation does not have any integer solutions.
 
-## Fermat’s Little Theorem
+## Fermat's Little Theorem
 
 $$
 x^p \equiv x \pmod p \text{\hspace{4ex}($p$ prime)}

@@ -42,7 +42,7 @@ Alternatively, allowing negative integers: any number $n \ne 0$ is a product of 
 
 We can also give a similar result for polynomials over $\mathbb{R}$. Take $f(x) = a_0 + a_1 x + \ldots$. Here, the _units_ are non-zero constant polynomials, and every non-zero polynomial can be written as a product of irreducible polynomials and constant polynomials.
 
-Note that real numbers don’t have primes, because any real $x \geq 1$ can be written as $x = \sqrt{x} \times \sqrt{x}$.
+Note that real numbers don't have primes, because any real $x \geq 1$ can be written as $x = \sqrt{x} \times \sqrt{x}$.
 
 What about integers in the form $4n+1$, such as $1, 5, 9, 13, 17, 21, \ldots$? Well, you indeed have "primes" where the product is like $(4n+1)(4m+1) = 4(mn+m+n)+1$. However, the factorization is **not unique**, e.g. $9 \times 49 = 21 \times 21$.
 

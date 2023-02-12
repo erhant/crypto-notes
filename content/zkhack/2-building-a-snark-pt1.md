@@ -96,13 +96,13 @@ The setup phase $setup(\lambda) \to pp$ works as follows:
 2. $pp = (H_0 = G, H_1 = \alpha G, H_2 = \alpha^2 G, \ldots, H_d = \alpha ^ d G) \in \mathbb{G}^{d+1}$
 3. Delete $\alpha$ or you get in trouble! (trusted setup)
 
-Note that you can’t do something like $H_0 / H_1 = \alpha$ because division is not defined for these guys!
+Note that you can't do something like $H_0 / H_1 = \alpha$ because division is not defined for these guys!
 
 ## Commitment
 
 The commitment phase $commit(pp, f) \to com_f$ is as follows:
 
-- Compute $com_f := f(\alpha) G \in \mathbb{G}$, but wait we don’t have $\alpha$ so what do we do?
+- Compute $com_f := f(\alpha) G \in \mathbb{G}$, but wait we don't have $\alpha$ so what do we do?
 - We have a univariate polynomial $f(X) = f_0 + f_1 X + \ldots + f_d X^d$
 - We use the public parameters $pp$ to compute $com_f = f_0 H_0 + f_1H_1 + \ldots + f_dH_d$
 - If you expand $H$ in there, you will notice that the entire thing is equal to $f(\alpha)G$.

@@ -132,4 +132,4 @@ $$
 - Can we always find a prime $p$ for any $n$ such that $n^2 < p < (n+1)^2$?
 - Can we find infinitely many primes of the form $p=n^2+1$?
 
-We don't know the answer to these, we don’t even have an idea on how to approach them. However, we believe the answer is yes.
+We don't know the answer to these, we don't even have an idea on how to approach them. However, we believe the answer is yes.

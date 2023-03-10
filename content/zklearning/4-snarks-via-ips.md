@@ -11,7 +11,7 @@ cat: 'zklearning'
 
 # Recall: What is a SNARK?
 
-A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is “short”. For example, I have a statement:
+A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 
 - I know an $m$ such that $\text{SHA256}(m) = 0$.
 
@@ -51,7 +51,7 @@ There are two requirements to this:
 
 ## Soundness vs. Knowledge Soundness
 
-With that, we must make note on the different between “soundness” and “knowledge soundness”. In a previous lecture by Prof. Boneh, we have talked about knowledge soundness in particular.
+With that, we must make note on the different between "soundness" and "knowledge soundness". In a previous lecture by Prof. Boneh, we have talked about knowledge soundness in particular.
 
 So, now let us think of a circuit satisfiability case. Let $C$ be some public arithmetic circuit
 
@@ -59,16 +59,16 @@ $$
 C(x, w) \to \mathbb{F}
 $$
 
-where $x \in \mathbb{F}^n$ is some public statement and $w \in \mathbb{F}^m$ is some secret witness. Let us look at the types of “soundness” with this example:
+where $x \in \mathbb{F}^n$ is some public statement and $w \in \mathbb{F}^m$ is some secret witness. Let us look at the types of "soundness" with this example:
 
 - **Soundness**: $V$ accepts $\implies \exists w : C(x, w) = 0$
-- **Knowledge soundness:** $V$ accepts $\implies P$ “knows” $\exists w : C(x, w) = 0$
+- **Knowledge soundness:** $V$ accepts $\implies P$ "knows" $\exists w : C(x, w) = 0$
 
-As we can see, knowledge soundness is “stronger” than soundness, the prover MUST know the existing witness.
+As we can see, knowledge soundness is "stronger" than soundness, the prover MUST know the existing witness.
 
-However, soundness itself can be valid in some cases even when knowledge soundness has no meaning. This is usually in cases where there is no “natural” witness. For example, $P$ can claim that the output of a program given by $V$ on the public input $x$ is 42. Well, witness is not used in the program, so there is really nothing to “know” here.
+However, soundness itself can be valid in some cases even when knowledge soundness has no meaning. This is usually in cases where there is no "natural" witness. For example, $P$ can claim that the output of a program given by $V$ on the public input $x$ is 42. Well, witness is not used in the program, so there is really nothing to "know" here.
 
-The vice-versa is true too, where knowledge soundness means something but you don't really care about soundness. This is usually in cases where the soundness is trivial. For example, $P$ knows the secret key to some Bitcoin account. Well, there does exist a private key to that account for sure. In a “sound” protocol, the verifier could just say “yep, can't argue with that” and accept, without breaking soundness itself.
+The vice-versa is true too, where knowledge soundness means something but you don't really care about soundness. This is usually in cases where the soundness is trivial. For example, $P$ knows the secret key to some Bitcoin account. Well, there does exist a private key to that account for sure. In a "sound" protocol, the verifier could just say "yep, can't argue with that" and accept, without breaking soundness itself.
 
 - SNARK's that don't have knowledge soundness are called SNARGs, they are studied too!
 
@@ -88,7 +88,7 @@ So, in summary:
 
 # Recall: Trivial SNARK is not a SNARK
 
-What is the trivial way to prove that you know some $w$ such that $C(x, w) = 0$? Well, you could just send $w$ right? This has two problems, both against the “succinctness” of a SNARK:
+What is the trivial way to prove that you know some $w$ such that $C(x, w) = 0$? Well, you could just send $w$ right? This has two problems, both against the "succinctness" of a SNARK:
 
 - $w$ could be large 🔴
 - computing $C(x, w)$ could take a lot of time 🔴
@@ -152,7 +152,7 @@ In this binary tree, every node is made up of the hash of its children:
 
 The leaf nodes are the elements of the committed vector, `m`, `y`, `v`, and such. The root $h_1$ is the **commitment** to this vector!
 
-When the prover is asked to show that indeed some element of the vector exists at some position, it will provide only the necessary nodes. For example, a verifier could ask “is there really a `t` at position 6?”. The prover will give: `c`, `t`, $h_7$ and $h_2$. The verifier will do the following:
+When the prover is asked to show that indeed some element of the vector exists at some position, it will provide only the necessary nodes. For example, a verifier could ask "is there really a `t` at position 6?". The prover will give: `c`, `t`, $h_7$ and $h_2$. The verifier will do the following:
 
 - $h_6 = H(c, t)$
 - $h_3 = H(h_6, h_7)$
@@ -217,7 +217,7 @@ $$
 \Pr_{r \in \mathbb{F}_p}[f(r) = 0] \leq \frac{d}{|\mathbb{F}_p|}
 $$
 
-For very large $p$ and small $d$ this probability becomes negligible; meaning that you can't really come up with some random field element $r$ and find that $f(r) = 0$, it is a tiny probability. Following on this “zero-test” fact, you can obtain an “equality-test” with the same reasoning:
+For very large $p$ and small $d$ this probability becomes negligible; meaning that you can't really come up with some random field element $r$ and find that $f(r) = 0$, it is a tiny probability. Following on this "zero-test" fact, you can obtain an "equality-test" with the same reasoning:
 
 $$
 \Pr_{r \in \mathbb{F}_p}[f(r) = q(r)] \leq \frac{d}{|\mathbb{F}_p|}
@@ -277,7 +277,7 @@ The important fact we must realize about multilinear extensions is the following
 
 You might think of how the hash of an input changes drastically even if the input is changed slightly. This kind of resembles that, if the two functions have different evaluations on the set of points that they are defined on, then the MLE will have many many different evaluations on a lot of points.
 
-The multilinear extensions “blow up & amplify” the tiny differences between $f, g$, so that you can see the resulting extreme differences in the extensions $\tilde{f}, \tilde{g}$.
+The multilinear extensions "blow up & amplify" the tiny differences between $f, g$, so that you can see the resulting extreme differences in the extensions $\tilde{f}, \tilde{g}$.
 
 ## Quick Evaluation of MLEs
 
@@ -431,7 +431,7 @@ flowchart BT
 	A2 --> A3
 ```
 
-Remember the trick of viewing a matrix as a function back in the “counting triangles” example? Well, we can do a similar trick for transcripts too!
+Remember the trick of viewing a matrix as a function back in the "counting triangles" example? Well, we can do a similar trick for transcripts too!
 
 A transcript $T$ can be viewed as a function $T : \{0, 1\}^{\log S} \to \mathbb{F}$. Assign each gate in $C$ a $\log S$-bit label and view $T$ as a function mapping gate labels to $\mathbb{F}$. Basically, by giving the correct gate label to this function you can select a value at the circuit transcript, something like $T(0, 0, 0, 0) = 1$ for the example above.
 

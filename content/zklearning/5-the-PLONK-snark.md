@@ -9,7 +9,7 @@ cat: 'zklearning'
 
 # Recall: Polynomial Commitments
 
-We will use polynomial commitments in this lecture, so let’s quickly recall what they are!
+We will use polynomial commitments in this lecture, so let's quickly recall what they are!
 
 - The prover would like to commit to some polynomial $f \in \mathbb{F}_p^{(\leq d)}[X]$.
 - An $eval$ function uses evaluate some values for this polynomial, without revealing it. For example, pick some public $u, v \in \mathbb{F}_p$.
@@ -19,9 +19,9 @@ We will use polynomial commitments in this lecture, so let’s quickly recall wh
 
 # KZG Poly-commit Scheme
 
-In this lecture, we will use KZG [[Kate-Zaverucha-Goldberg’10]](https://www.iacr.org/archive/asiacrypt2010/6477178/6477178.pdf) polynomial commitment scheme.
+In this lecture, we will use KZG [[Kate-Zaverucha-Goldberg'10]](https://www.iacr.org/archive/asiacrypt2010/6477178/6477178.pdf) polynomial commitment scheme.
 
-Fix some finite cyclic group $\mathbb{G}$ of order $p$. This group basically has some generator value $G$ and the group consists of it’s multiplications:
+Fix some finite cyclic group $\mathbb{G}$ of order $p$. This group basically has some generator value $G$ and the group consists of it's multiplications:
 
 $$
 \mathbb{G} = \{0, G, 2G, 3G, \ldots, (p-1)G\}
@@ -67,7 +67,7 @@ $$
 f_0G + f_1\tau G +f_2\tau^2 G + \ldots f_d \tau^d G = f(\tau)G
 $$
 
-We got the commitment we’ve wanted! Note that this commitment is **binding**, but not **hiding** as is.
+We got the commitment we've wanted! Note that this commitment is **binding**, but not **hiding** as is.
 
 ## Evaluation: $eval$
 
@@ -76,7 +76,7 @@ Let us now see how a verifier evaluates the commitment.
 - Prover knows $(gp, f, u, v)$ and wants to prove that $f(u) = v$.
 - Verifier knows $(gp, com_f, u, v)$.
 
-We will have some series of if-and-only-if’s now, which will connect everything really nicely.
+We will have some series of if-and-only-if's now, which will connect everything really nicely.
 
 - $f(u) = v$ if and only if $u$ is a root of $\hat{f} := f - v$. This makes sense because if indeed $f(u)=v$ then $f(u) - v = 0$ which would make $u$ a root for $\hat{f}$.
 - $u$ is a root of $\hat{f}$ if and only if the polynomial $(X-u)$ divides $\hat{f}$. You might be familiar with this property already throughout this lecture.
@@ -85,7 +85,7 @@ We will have some series of if-and-only-if’s now, which will connect everythin
 With this knowledge in mind, here is the plan:
 
 1. Prover computes $q(X)$ and commits to $q$ as $com_q$. Remember that commitment results in a single group element only.
-2. Prover send the proof $\pi = com_q$. That’s right, the entire proof is just the commitment to $q$ which means the proof size is a single group element, independent of the degree $d$.
+2. Prover send the proof $\pi = com_q$. That's right, the entire proof is just the commitment to $q$ which means the proof size is a single group element, independent of the degree $d$.
 3. Verifier accepts if $(\tau - u)com_q = com_f - vG$
 
 You may notice that there is $\tau$ here, which is supposed to be secret; and you are right. What actually happens is that something called **pairing** is used here to hide $\tau$ while still allowing the above computation. In doing so, only $H_0$ and $H_1$ will be used, which again makes this thing independent of degree $d$.
@@ -98,7 +98,7 @@ You might ask, how to prove that this is a secure poly-commit scheme? We are goi
 
 KZG has some cool properties!
 
-- **Generalizations**: It has been shown that you can use KZG to commit to $k$-variate polynomials [[Papamanthou-Shi-Tamassia’13]](https://eprint.iacr.org/2011/587.pdf)
+- **Generalizations**: It has been shown that you can use KZG to commit to $k$-variate polynomials [[Papamanthou-Shi-Tamassia'13]](https://eprint.iacr.org/2011/587.pdf)
 - **Batch Proofs**: Suppose you have commitments to $n$ polynomials $f_1, f_2, \ldots, f_n$ and you have $m$ values to reveal in each of them, meaning that you basically want to prove all evaluations defined by $f_i(u_{i, j}) = v_{i, j}$ for $i \in [n]$ and $j \in [m]$.
   - Normally, this would require $n \times m$ evaluations, but thanks to KZG we can actually do this in a single proof that is a single group element!
 - **Linear-time Commitments**: How long does it take to commit to a polynomial of degree $d$? Well, we would really like this to be in linear time with $d$, and turns out it is possible to do so. This deserves a sub-section on its own though, so let us do that.
@@ -139,7 +139,7 @@ $$
 
 Let $\Omega \subseteq \mathbb{F}_p$ and $|\Omega| = d$. Suppose that the prover needs an evaluation proof $\pi_a$ for all $a \in \Omega$. Normally, this would require $\mathcal{O}(d^2)$ time because proving one takes time linear in $d$ and there are $d$ values.
 
-Thanks to [[Feist-Khovratovic’20]](https://eprint.iacr.org/2023/033) there is a much faster algorithm to do this.
+Thanks to [[Feist-Khovratovic'20]](https://eprint.iacr.org/2023/033) there is a much faster algorithm to do this.
 
 - If $\Omega$ is a [multiplicative group](https://mathworld.wolfram.com/MultiplicativeGroup.html) then it takes time in $\mathcal{O}(d\log d)$
 - otherwise, it takes time in $\mathcal{O}(d \log^2 d)$
@@ -151,13 +151,13 @@ KZG has some difficulties:
 - it requires a trusted setup to compute the public parameters $gp$
 - $gp$ size is linear in the degree $d$
 
-Can we do any better? Kind of yeah! Dory [[Lee’20]](https://eprint.iacr.org/2020/1274.pdf) is a polynomial commitment scheme with the following properties:
+Can we do any better? Kind of yeah! Dory [[Lee'20]](https://eprint.iacr.org/2020/1274.pdf) is a polynomial commitment scheme with the following properties:
 
-- 🟢 It has transparent setup, so there is no need for a trusted setup
-- 🟢 $com_f$ is still just a single group element, independent of degree
-- 🔴 $eval$ proof size is $\mathcal{O}(\log d)$ group elements; KZG took constant time.
-- 🔴 $eval$ verification time is $\mathcal{O}(\log d)$; KZG took constant time.
-- 🟢 prover time is $\mathcal{O}(d)$
+- 🟢 It has transparent setup, so there is no need for a trusted setup
+- 🟢 $com_f$ is still just a single group element, independent of degree
+- 🔴 $eval$ proof size is $\mathcal{O}(\log d)$ group elements; KZG took constant time.
+- 🔴 $eval$ verification time is $\mathcal{O}(\log d)$; KZG took constant time.
+- 🟢 prover time is $\mathcal{O}(d)$
 
 # PCS to Commit to a Vector
 
@@ -165,7 +165,7 @@ Poly-commit schemes are a drop-in replacement for Merkle Trees, which we have us
 
 Suppose you have some vector $(u_1, u_2, \ldots, u_k) \in \mathbb{F}_p^{(\leq d)}$. To commit to this vector, the prover will interpolate a polynomial $f$ such that $f(i) = u_i$ for $i \in [k]$. Then, the prover can simply commit to this polynomial $f$ as we have described above.
 
-If a verifier wants to query some vector elements, like “show me that $u_2 = a$ and $u_4 = b$” this translate to “show me $f(2)=a$ and $f(4)=b$” and we know we can prove this in a single group element using a batch proof thanks to KZG.
+If a verifier wants to query some vector elements, like "show me that $u_2 = a$ and $u_4 = b$" this translate to "show me $f(2)=a$ and $f(4)=b$" and we know we can prove this in a single group element using a batch proof thanks to KZG.
 
 If we were to use a Merkle Tree, each evaluation proof would have size $\mathcal{O}(\log k)$ and for $\ell$ proofs this would mean $\mathcal{O}(\ell \log k)$ proof size, a lot bigger than the constant proof size of KZG.
 
@@ -179,7 +179,7 @@ Also note that everything we will do in our interactive proofs will be public-co
 
 ## Equality Testing
 
-Recall that in KZG, the verifier could test if $f = g$ just by knowing $com_f, com_g$, also shown as $\boxed{f}, \boxed{g}$. For bit more complex equality tests, that won’t be enough.
+Recall that in KZG, the verifier could test if $f = g$ just by knowing $com_f, com_g$, also shown as $\boxed{f}, \boxed{g}$. For bit more complex equality tests, that won't be enough.
 
 For example, suppose that the verifier has $\boxed{f}, \boxed{g_1}, \boxed{g_2}, \boxed{g_3}$ and would like to see if $f = g_1g_2g_3$. To do this, the verifier has to query the prover on all four polynomials at some random field element and test equality.
 
@@ -194,7 +194,7 @@ We will now construct efficient poly-IOPs for the following proof gadgets:
 - **Sum Check**: prove that $\sum_{a\in \Omega}f(a) = 0$
 - **Product Check**: prove that $\prod_{a\in \Omega} f(a) = 1$
 - **Permutation Check**: prove that evaluations of $f$ over $\Omega$ is a permutation of evaluations of $g$ over $\Omega$
-- **Prescribed Permutation Check**: prove that evaluations of $f$ over $\Omega$ is a permutation of evaluations of $g$ over $\Omega$, with a “prescribed” permutation $W : \Omega \to \Omega$. This permutation is a bijection $\forall i \in [k] : W(\omega^i) = \omega^j$
+- **Prescribed Permutation Check**: prove that evaluations of $f$ over $\Omega$ is a permutation of evaluations of $g$ over $\Omega$, with a "prescribed" permutation $W : \Omega \to \Omega$. This permutation is a bijection $\forall i \in [k] : W(\omega^i) = \omega^j$
 
 To start, we need to introduce the concept of a **vanishing polynomial**.
 
@@ -214,7 +214,7 @@ then $Z_\Omega(X) = X^k-1$. This is really nice, because for such cases, evaluat
 
 ### Zero Test
 
-In the following graph, we denote `Z(r)` for $Z_\Omega(r)$. Also remember that when we say “the verifier queries some polynomial and the prover shows its evaluation”, what we mean is that in the background the prover computes them and sends the result along with an evaluation proof.
+In the following graph, we denote `Z(r)` for $Z_\Omega(r)$. Also remember that when we say "the verifier queries some polynomial and the prover shows its evaluation", what we mean is that in the background the prover computes them and sends the result along with an evaluation proof.
 
 With that said, let us see the zero-test poly-IOP.
 
@@ -234,9 +234,9 @@ sequenceDiagram
 
 ```
 
-Let’s analyze the costs in this IOP:
+Let's analyze the costs in this IOP:
 
-- The verifier made two polynomial queries (although a batch proof could have been done), and also it computed $Z_\Omega(r)$ on it’s own which takes time $\mathcal{O}(\log k)$.
+- The verifier made two polynomial queries (although a batch proof could have been done), and also it computed $Z_\Omega(r)$ on it's own which takes time $\mathcal{O}(\log k)$.
 - The prover time is dominated by the time to compute $q(X)$ and then commit to it, which runs in time $\mathcal{O}(k \log k)$.
 
 ### Product Check and Sum Check
@@ -263,7 +263,7 @@ which is made possible because $\Omega$ consists of powers of $\omega$. The lemm
 - and $t(\omega x) - t(x) f(\omega x) = 0$ for all $x \in \Omega$
 - then, $\prod_{a \in \Omega}f(a) = 1$
 
-Let’s write the interactive proof! The idea will to construct another polynomial $t_1(X)$ which is:
+Let's write the interactive proof! The idea will to construct another polynomial $t_1(X)$ which is:
 
 $$
 t_1(X) = t(\omega X) - t(x)f(\omega X)
@@ -317,7 +317,7 @@ We have two polynomials $f, g \in \mathbb{F}_p^{(\leq d)}[X]$ and we want to sho
 - $(g(1), g(\omega), g(\omega^2), \ldots, g(\omega^{k-1})) \in \mathbb{F}_p^k$
 - essentially proving that $g(\Omega)$ is same as $f(\Omega)$, but just permuted.
 
-To prove this, we will do what is known as the Lipton’s trick [Lipton’89]. We will construct two auxiliary polynomials:
+To prove this, we will do what is known as the Lipton's trick [Lipton'89]. We will construct two auxiliary polynomials:
 
 - $\hat{f}(X) = \prod_{a \in \Omega}(X - f(a))$
 - $\hat{g}(X) = \prod_{a \in \Omega}(X - g(a))$
@@ -365,13 +365,13 @@ This protocol is sound and complete, assuming $2d/p$ is negligible. The cost of 
 
 # PLONK
 
-The time has come! **PLONK** [[Gabizon-Williamson-Ciobotaru’19]](https://eprint.iacr.org/2019/953) is a poly-IOP for a general circuit $C(x, w)$.
+The time has come! **PLONK** [[Gabizon-Williamson-Ciobotaru'19]](https://eprint.iacr.org/2019/953) is a poly-IOP for a general circuit $C(x, w)$.
 
 But, before we delve into PLONK, we must realize that PLONK itself in practice is more like an abstract IOP, that when used with some poly-commit scheme will result in a SNARK system. Here are some examples in practice:
 
 | Poly-commit Scheme                 | Poly-IOP | SNARK System     |
 | ---------------------------------- | -------- | ---------------- |
-| KGZ’10, uses pairings              | PLONK    | Aztec, JellyFish |
+| KGZ'10, uses pairings              | PLONK    | Aztec, JellyFish |
 | Bulletproofs, no pairings required | PLONK    | Halo2            |
 | FRI, uses hashes                   | PLONK    | Plonky2          |
 
@@ -379,7 +379,7 @@ With that said, let us begin.
 
 ## Step 1: Compile circuit to computation trace
 
-We will use an example circuit with an example evaluation. Our circuits have gates with two inputs and a single input, also shown as “gate fan-in = 2”.
+We will use an example circuit with an example evaluation. Our circuits have gates with two inputs and a single input, also shown as "gate fan-in = 2".
 
 ```mermaid
 flowchart LR
@@ -418,7 +418,7 @@ We compile this evaluation into a computation trace, which is simply a table tha
 
 ## Step 1.5: Encode trace as a polynomial
 
-We have spent a lot of time learning how to commit to polynomials, so let’s get them to work! First, some definitions:
+We have spent a lot of time learning how to commit to polynomials, so let's get them to work! First, some definitions:
 
 - $|C|$ is the circuit size, equal to number gates in the circuit.
 - $|I| = |I_x| + |I_w|$ is the number of inputs to the circuit, which is the number of public inputs and the secret inputs combined.
@@ -435,7 +435,7 @@ The plan is to encode the entire computation trace into a polynomial $T \in \mat
 
 In the circuit example above, there are 12 points, which defines a degree-11 polynomial. To interpolate a polynomial to the values in the computation trace, the prover can actually use Fast Fourier-Transform (FFT) to compute the coefficients of polynomial $T$ in time $\mathcal{O}(d \log d)$.
 
-However, in general we won’t compute the coefficients, but instead use the point-value representation of the polynomial as described above.
+However, in general we won't compute the coefficients, but instead use the point-value representation of the polynomial as described above.
 
 ## Step 2: Prove validity of $T$
 
@@ -443,7 +443,7 @@ So the prover has computed $T$, and committed to it as $\boxed{T}$. It sends it 
 
 1. $T$ encodes the correct inputs
 2. Every gate is evaluated correctly
-3. The “wiring” is implemented correctly
+3. The "wiring" is implemented correctly
 4. The output of last gate is 0. Well, in this example the output is 77, but generally the verifier expects a 0 output, remember how we say $C(x, w) = 0$.
 
 ### (1) $T$ encodes the correct inputs
@@ -460,7 +460,7 @@ It is quite easy to do this, because vanishing polynomial for $\Omega_{inp}$ is 
 
 ### (2): Every gate is evaluated correctly
 
-The idea here is to encode gate types using a selector polynomial $S(X)$. Remember that in our example we encoded the two gate inputs and an output as $\omega$ to the power $3\ell, 3\ell+1, 3\ell+2$ for some gate $\ell$. Now, we will encode the “types” of these gates.
+The idea here is to encode gate types using a selector polynomial $S(X)$. Remember that in our example we encoded the two gate inputs and an output as $\omega$ to the power $3\ell, 3\ell+1, 3\ell+2$ for some gate $\ell$. Now, we will encode the "types" of these gates.
 
 Define $S(X) \in \mathbb{F}_p^{(\leq d)}[X]$ such that $\forall \ell \in \{0,  1, \ldots, |C|-1\}$:
 
@@ -537,7 +537,7 @@ The main challenge is to reduce the prover time. Furthermore, just using `+` and
 
 ### HyperPlonk
 
-What HyperPlonk [[Chen-Bünz-Boneh-Zhang’22]](https://eprint.iacr.org/2022/1355) does is that they replace $\Omega$ with $\{0, 1\}^t$ where $t = \log|\Omega|$. As such, the polynomial $T$ becomes a multilinear polynomial with $t$ variables. Zero-test is then replaced by a multilinear sum-check that runs in linear time.
+What HyperPlonk [[Chen-Bünz-Boneh-Zhang'22]](https://eprint.iacr.org/2022/1355) does is that they replace $\Omega$ with $\{0, 1\}^t$ where $t = \log|\Omega|$. As such, the polynomial $T$ becomes a multilinear polynomial with $t$ variables. Zero-test is then replaced by a multilinear sum-check that runs in linear time.
 
 ### Plonkish Arithmetization: Custom Gates
 

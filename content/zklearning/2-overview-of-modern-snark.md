@@ -11,7 +11,7 @@ In the previous lecture, we have discussed interactive proofs (IP) in general. N
 
 # SNARK
 
-A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is “short”. For example, I have a statement:
+A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 
 - I know an $m$ such that $\text{SHA256}(m) = 0$.
 
@@ -50,7 +50,7 @@ The initial attempts to this was made via C2PA, a standard of content provenance
 
 However, newspapers and press that display a picture often have to apply some post-processing, such as rescaling, cropping and gray-scaling. There is actually a list of allowed operations by Associated Press. Doing any of these will break the signature, as it can be though of as tampering.
 
-Here is the solution by [[Kang-Hashimoto-Stoica-Sun'22]](https://arxiv.org/abs/2211.04775) to this problem using zk-SNARKs: suppose that the machine that is doing the post-processing has the photo $P$ and some list of allowed operations $Ops$. Denote the original photo as $P_{orig}$ and $s$ as the signature. The editing software will attach a proof $\pi$ of claim: “I know a pair $(P_{orig}, s)$” such that:
+Here is the solution by [[Kang-Hashimoto-Stoica-Sun'22]](https://arxiv.org/abs/2211.04775) to this problem using zk-SNARKs: suppose that the machine that is doing the post-processing has the photo $P$ and some list of allowed operations $Ops$. Denote the original photo as $P_{orig}$ and $s$ as the signature. The editing software will attach a proof $\pi$ of claim: "I know a pair $(P_{orig}, s)$" such that:
 
 - $s$ is a valid C2PA signature on $P_{orig}$
 - $P$ is the result of applying $Ops$ to $P_{orig}$
@@ -142,13 +142,13 @@ $$
 \forall x , w : C(x, w) = 0 \implies \Pr[V(vp, x, P(pp, x, w)) = \text{accept}] = 1
 $$
 
-- **Soundness:** If the verifier accepts a proof, the prover should indeed know the argued knowledge. “Knowing” something is rather interesting to capture formally, but for now let's say there is an extractor algorithm $E$ that can extract a valid $w$ from the prover.
+- **Soundness:** If the verifier accepts a proof, the prover should indeed know the argued knowledge. "Knowing" something is rather interesting to capture formally, but for now let's say there is an extractor algorithm $E$ that can extract a valid $w$ from the prover.
 
 $$
 V(vp, x, P(pp, x, w)) = \text{accept} \implies P \text{ knows } w : C(x, w) = 0
 $$
 
-- **Zero-knowledge (optional)**: The view of this interaction, consisting of $(C, pp, vp, x, \pi)$ “reveals nothing new” of $w$.
+- **Zero-knowledge (optional)**: The view of this interaction, consisting of $(C, pp, vp, x, \pi)$ "reveals nothing new" of $w$.
 
 ## Trivial NARK
 
@@ -227,7 +227,7 @@ $$
 V(vp, x, P(pp, x, w)) = \text{accept} \implies P \text{ knows } w : C(x, w) = 0
 $$
 
-Well, what does it mean to “know” here? Informally, $P$ knows $w$ if this $w$ can be somehow extracted from the prover $P$. The way we do that is kind of torturing the $P$ until it spits out $w$. Let us give the formal definition now.
+Well, what does it mean to "know" here? Informally, $P$ knows $w$ if this $w$ can be somehow extracted from the prover $P$. The way we do that is kind of torturing the $P$ until it spits out $w$. Let us give the formal definition now.
 
 Formally, an argument system $(S, P, V)$ is _(adaptively)_ knowledge-sound for some circuit $C$, if for every polynomial time adversary $A = (A_0, A_1)$ such that:
 
@@ -353,7 +353,7 @@ Consider some non-zero polynomial with degree at most $d$, shown as $f \in \math
 
 - for $r \gets \mathbb{F}_p$ it holds that $\Pr[f(r) = 0] \leq d/p$
 
-We know that $f$ has at most $d$ roots. $r$ is chosen at random from a size $p$, do the probability that $r$ “hits” a root value is easy to see that $d/p$.
+We know that $f$ has at most $d$ roots. $r$ is chosen at random from a size $p$, do the probability that $r$ "hits" a root value is easy to see that $d/p$.
 
 Now suppose that $p \approx 2^{256}$ and $d \leq 2^{40}$. Then, $d/p$ is negligible! So it is really unlikely that a randomly chosen field element will be the root for $f$.
 
@@ -385,9 +385,9 @@ sequenceDiagram
 	note over V: reject otherwise
 ```
 
-That's cool and all, but wait, we talked about non-interactiveness the entire lecture; why are we making an interactive protocol right now? Well, $r$ here is the only interaction that a verifier makes to the prover. It is a “public coin”, just some coin-toss (or a series of tosses) given by the verifier to the prover for everyone to see.
+That's cool and all, but wait, we talked about non-interactiveness the entire lecture; why are we making an interactive protocol right now? Well, $r$ here is the only interaction that a verifier makes to the prover. It is a "public coin", just some coin-toss (or a series of tosses) given by the verifier to the prover for everyone to see.
 
-Thanks to Fiat-Shamir Transform, we can transform interactive protocols of this nature into non-interactive proofs! More specifically, Fiat-Shamir Transform can take a “public-coin interactive protocol” which means all verifier randomness is public, and transform it into a non-interactive protocol.
+Thanks to Fiat-Shamir Transform, we can transform interactive protocols of this nature into non-interactive proofs! More specifically, Fiat-Shamir Transform can take a "public-coin interactive protocol" which means all verifier randomness is public, and transform it into a non-interactive protocol.
 
 To be technical, Fiat-Shamir Transform isn't safe to transform ALL interactive proofs of this nature, but it is good enough for our needs right now.
 
@@ -439,7 +439,7 @@ $$
 $$
 
 - **Soundness**: The second property is knowledge soundness (unconditional), meaning that a malicious prover can not convince a verifier that they know a witness $w$ such that $C(x, w) = 0$. The way to prove that is using an **extractor**: this extractor is given the statement $x$ and functions $f_1, f_2, \ldots, f_t$ in **clear**! Why in clear? Because, the commitments to those functions were SNARKs too and the extractor can extract the functions themselves from there too. The extractor must extract the witness $w$ from this process.
-- **Zero-knowledge (optional)**: The view of this IOP “reveals nothing new” of $w$.
+- **Zero-knowledge (optional)**: The view of this IOP "reveals nothing new" of $w$.
 
 ## Example: Polynomial IOP for claim $X \subseteq W \subseteq \mathbb{F}_p$
 
@@ -479,7 +479,7 @@ I will explain how $f(Z)$ and $g(Z)$ are computed here, let's dig in.
 6. Verifier queries the value of $\boxed{f}$ and $\boxed{q}$ at point $r$, and also computes $g(r)$. Denote these as $w, q', x$ respectively. Note that this querying happens via the polynomial commitment scheme in practice, so behind the scenes verifier sends $r$ to the prover, the prover evaluates it and sends back the result along with a proof that it is evaluated correctly and so on, check the previous section for this.
 7. Verifier checks if $x \times q' = w$. This is only possible if $q(Z) = f / g$ indeed, think of it like checking $f \times q = g$ in this example.
 
-Replacing the oracles with commitments, and oracle queries with commitment interactions and so on is often called “compilation step”, where this Poly-IOP is “compiled” into a SNARK by adding in the PCS (poly-commitment scheme) steps.
+Replacing the oracles with commitments, and oracle queries with commitment interactions and so on is often called "compilation step", where this Poly-IOP is "compiled" into a SNARK by adding in the PCS (poly-commitment scheme) steps.
 
 ## The IOP Zoo
 

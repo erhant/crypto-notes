@@ -1,7 +1,7 @@
 ---
 title: 'Reduction Proofs'
-desc: 'We describe how reduction proofs are made.'
-order: 5
+desc: 'We describe how reduction proofs are made, which play a key role in cryptographic proofs.'
+order: 3
 cat: 'modern-cryptography'
 ---
 

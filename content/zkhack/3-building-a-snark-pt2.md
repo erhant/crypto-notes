@@ -19,7 +19,7 @@ A really key fact for $0 \ne f \in \mathbb{F}_p^{(\leq d)}[X]$ (for some random 
 
 - for $r \gets \mathbb{F}_p$ it holds that $\Pr[f(r) = 0] \leq d/p$
 
-We know that $f$ has at most $d$ roots. $r$ is chosen at random from a size $p$, do the probability that $r$ “hits” a root value is easy to see that $d/p$.
+We know that $f$ has at most $d$ roots. $r$ is chosen at random from a size $p$, do the probability that $r$ "hits" a root value is easy to see that $d/p$.
 
 Suppose that $p \approx 2^{256}$ and $d \leq 2^{40}$. Then, $d/p$ is negligible! So it is really unlikely that a randomly chosen field element will be the root for $f$.
 
@@ -133,7 +133,7 @@ Prover needs to prove that $P$ is a correct computation trace, which means the f
 
 1. $P$ encodes the correct inputs
 2. Every gate is evaluated correctly
-3. The “wiring” is implemented correctly
+3. The "wiring" is implemented correctly
 4. The output of last gate is 0
 
 ### (1) $P$ encodes the correct inputs
@@ -156,7 +156,7 @@ Prover will prove (1) by using a zero-test on $H_{inp}$ to prove that:
 
 ### (2): Every gate is evaluated correctly
 
-The idea here is to encode gate types using a selector polynomial $S(X)$. Remember that in our example we encoded the two gate inputs and an output as $\omega$ to the power $3l, 3l+1, 3l+2$ for some gate $l$. Now, we will encode the “types” of these gates.
+The idea here is to encode gate types using a selector polynomial $S(X)$. Remember that in our example we encoded the two gate inputs and an output as $\omega$ to the power $3l, 3l+1, 3l+2$ for some gate $l$. Now, we will encode the "types" of these gates.
 
 Define $S(X) \in \mathbb{F}_p^{(\leq d)}[X]$ such that $\forall l = 0, \ldots, |C|-1$:
 
@@ -199,7 +199,7 @@ Define a polynomial $W : H \to H$ that implements a rotation:
 
 Why we do this fantastic thing is due to a lemma; if $\forall y \in H : P(y) = P(W(y))$ then the wire constraints are satisfied.
 
-However, there is a problem: $P(W(y))$ has degree $d \times d = d^2$ but we want prover to work in linear time $d$ only! PLONK uses a very nice trick: use product check proof to reduce this to a constraint of linear degree. This trick is called the “PLONK Permutation” trick.
+However, there is a problem: $P(W(y))$ has degree $d \times d = d^2$ but we want prover to work in linear time $d$ only! PLONK uses a very nice trick: use product check proof to reduce this to a constraint of linear degree. This trick is called the "PLONK Permutation" trick.
 
 ### (4) Output of last gate is 0
 

@@ -57,7 +57,7 @@ flowchart LR
 
 ```
 
-This way, the output will be the input on the next “clock”. We can represent this circuit as:
+This way, the output will be the input on the next "clock". We can represent this circuit as:
 
 $$
 C' = (A+B)\times C
@@ -69,7 +69,7 @@ $$
 C(wx) = (A(x)+B(x))\times C(x)
 $$
 
-Here, $w$ will be a root of unity. This causes a “shifting” effect, the polynomial of say $F(x)$ will be the same polynomial $F(wx)$ but shifted horizontally.
+Here, $w$ will be a root of unity. This causes a "shifting" effect, the polynomial of say $F(x)$ will be the same polynomial $F(wx)$ but shifted horizontally.
 
 ## Example: Fibonacci (Hello World of ZK)
 

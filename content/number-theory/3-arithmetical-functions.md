@@ -1,7 +1,7 @@
 ---
 title: 'Arithmetical Functions'
 desc: 'Functions defined on positive integers; they are quite interesting.'
-order: 6
+order: 3
 cat: 'number-theory'
 ---
 

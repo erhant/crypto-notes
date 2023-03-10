@@ -73,7 +73,7 @@ The main question of this course is not focused on this subject though. Instead,
 
 # Zero-Knowledge Interactive Proofs
 
-The main idea of ZKP, although very informally, is that a Prover “will prove that they can indeed prove the claim if they wanted to”, but they are not doing that so that information is kept private.
+The main idea of ZKP, although very informally, is that a Prover "will prove that they can indeed prove the claim if they wanted to", but they are not doing that so that information is kept private.
 
 ```mermaid
 sequenceDiagram
@@ -110,14 +110,14 @@ Here, the Prover is computationally unbounded but the Verifier must be efficient
 
 ## Example: Two Colors
 
-Consider a string x=”🔴🔵”. We claim that there are two colors in this string. However, our verifier is color-blind! How can we prove that indeed this string has two colors?
+Consider a string x="🔴🔵". We claim that there are two colors in this string. However, our verifier is color-blind! How can we prove that indeed this string has two colors?
 
 ```mermaid
 sequenceDiagram
 	actor P as Prover
 	actor V as Verifier
 
-	note over P, V: claim: x=”🔴🔵” has 🔴 and 🔵
+	note over P, V: claim: x="🔴🔵" has 🔴 and 🔵
 	loop i = 1, 2, ...
 		P ->> V: x
 		note over V: b ← {0, 1}
@@ -142,10 +142,10 @@ sequenceDiagram
 
 Let us describe what happens in this interactive proof:
 
-- The prover sends x to the verifier, say $x$ = ”🔴🔵”.
-- The verifier tosses a coin, and flips $x$ if it is heads $(b=1)$ meaning $x'$ = ”🔵🔴”. Otherwise, $x$ stays the same, meaning $x'$ = ”🔴🔵”. Verifier sends this $x'$ to the prover.
+- The prover sends x to the verifier, say $x$ = "🔴🔵".
+- The verifier tosses a coin, and flips $x$ if it is heads $(b=1)$ meaning $x'$ = "🔵🔴". Otherwise, $x$ stays the same, meaning $x'$ = "🔴🔵". Verifier sends this $x'$ to the prover.
 - Prover will then compare $x$ to $x'$, and since he can see colors, he will be able to tell whether $x'$ is flipped or not. Based on this, he will say $b'$ = heads or tails, depending on the flip. Prover sends $b'$ to the verifier.
-- Verifier looks at $b'$, and says “wow this guy can actually guess whether I got heads or tails, he must be seeing colors then!”. If $b'$ and $b$ does not match, she rejects.
+- Verifier looks at $b'$, and says "wow this guy can actually guess whether I got heads or tails, he must be seeing colors then!". If $b'$ and $b$ does not match, she rejects.
 - This interaction is repeated polynomially many times, until finally the Verifier accepts.
 
 Let us analyze this formally. If there are 2 colors, then verifier will accept. If there is a single color only, for all provers $\Pr[V\text{ accepts}] \leq 1/2$ for a single interaction. Repeating this interaction $k$ times would mean that $\Pr[V\text{ accepts}] \leq 1/2^k$ which becomes a tiny probability for large $k$. So, it is very unlikely that a prover can keep faking it for that many interactions.
@@ -534,7 +534,7 @@ The idea is the following:
 - Normally, we had a Prover that sent some answer $a_i$ and got back $coins_i$ from the Verifier.
 - Now, the Prover will send $a_i$ but instead of waiting for coins by the Verifier, it will generate its own coins simply via $H(a_i)$.
 
-What if the Prover needs coins before sending any answer? In that case, the first message of coins is posted “publicly” for all to see, and then Fiat-Shamir heuristics is applied to the rest.
+What if the Prover needs coins before sending any answer? In that case, the first message of coins is posted "publicly" for all to see, and then Fiat-Shamir heuristics is applied to the rest.
 
 However, Fiat-Shamir does not mean you can make all interactive proof's into non-interactive proofs! Yet, many specific AM protocols with an efficient prover can benefit from this heuristic.
 
@@ -551,4 +551,4 @@ It was shown by [[Fortnow-Karloff-Lund-Nissan'89]](https://dl.acm.org/doi/10.114
 
 Indeed, as shown in [[Benor-Goldwasser-Kilian-Wigderson'88]](https://dl.acm.org/doi/10.1145/62212.62223), you can prove a lot more with two provers! In fact, you now have unconditional PZK for NP problems. [[Babai-Fortnow-Lund'91]](https://link.springer.com/article/10.1007/BF01200056) has shown that you can even prove NEXPTIME (non-deterministic exponential time) problems with interactive proofs.
 
-Going even further, [[Reichardt-Unger-Vazirani'13]](https://www.nature.com/articles/nature12035) has shown that a classical verifier can verify the computation of two entangled but non-communicating polynomial time quantum algorithms. Finally, a recent work [[Ji-Natarajan-Vidick-Wright-Yuen‘20]](https://cacm.acm.org/magazines/2021/11/256404-mip-re/fulltext) has shown that with two not necessarily efficient quantum provers, and a classical verifier, you can prove all Recursively Enumerable Languages. Kind of meaning like everything; that's one bizarre result!
+Going even further, [[Reichardt-Unger-Vazirani'13]](https://www.nature.com/articles/nature12035) has shown that a classical verifier can verify the computation of two entangled but non-communicating polynomial time quantum algorithms. Finally, a recent work [[Ji-Natarajan-Vidick-Wright-Yuen'20]](https://cacm.acm.org/magazines/2021/11/256404-mip-re/fulltext) has shown that with two not necessarily efficient quantum provers, and a classical verifier, you can prove all Recursively Enumerable Languages. Kind of meaning like everything; that's one bizarre result!

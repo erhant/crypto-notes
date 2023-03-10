@@ -121,7 +121,7 @@ Then you will make a single polynomial out of these, that the verifier can query
 
 [(video)](https://www.youtube.com/watch?v=1oLzrbTBlbc)
 
-Consider a computation like $c_i = a_i \oplus b_i$ where $\oplus$ is the XOR operation. Calculating this every time in the proof and writing the constraints for it will be costly. Instead, you could have a large table that shows all possible operation for the XOR (for example if $a, b, c \in \{0, 1\}$ then the table has 4 rows, literally just the truth table for XOR operation) and simply make the argument “is there a row in this table with $a_i, b_i, c_i$? This is what is called a **Lookup Argument**. It is an optimization method to save from computation time, although generating the table could take time.
+Consider a computation like $c_i = a_i \oplus b_i$ where $\oplus$ is the XOR operation. Calculating this every time in the proof and writing the constraints for it will be costly. Instead, you could have a large table that shows all possible operation for the XOR (for example if $a, b, c \in \{0, 1\}$ then the table has 4 rows, literally just the truth table for XOR operation) and simply make the argument "is there a row in this table with $a_i, b_i, c_i$? This is what is called a **Lookup Argument**. It is an optimization method to save from computation time, although generating the table could take time.
 
 Think of the following problem, you have a $w$ and you would like to show that $w \in \{0, 3, 4, 7\}$ which is a set and is known publicly. You would like to prove $w$ is in this set without revealing what $w$ is! (Set Membership Proof)
 

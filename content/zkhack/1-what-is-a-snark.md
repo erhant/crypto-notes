@@ -9,7 +9,7 @@ cat: 'zkhack'
 
 # SNARK
 
-A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is “short”. For example, I have a statement:
+A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 
 - I know an $m$ such that $\text{SHA256}(m) = 0$.
 

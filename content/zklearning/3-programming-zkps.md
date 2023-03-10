@@ -49,7 +49,7 @@ However, transferring these statements into the programming side of things are a
 
 # Arithmetic Circuits
 
-In practice, $\phi$ may be an “arithmetic circuit” over inputs $x$ and $w$.
+In practice, $\phi$ may be an "arithmetic circuit" over inputs $x$ and $w$.
 
 Think of Boolean Circuits that you see in electronic classes or circuit design classes, perhaps you have taken one during your undergrad studies. Well, we had AND gates, OR gates, NAND gates and such there, where the operations were happening on 1s and 0s.
 
@@ -398,7 +398,7 @@ So yea, Circom is great and it has direct control over constraints. However, usi
 
 # Tutorial: Arkworks - Using a Library
 
-The most important object in a library will be the constraint system. This guy will keep state about R1CS constraints and variables, and we will interact with it while we write our “circuit”.
+The most important object in a library will be the constraint system. This guy will keep state about R1CS constraints and variables, and we will interact with it while we write our "circuit".
 
 The key operations here will be:
 

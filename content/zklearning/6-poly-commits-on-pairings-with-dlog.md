@@ -1,5 +1,5 @@
 ---
-title: 'Poly-commits with Pairings & Discrete-Log'
+title: 'Polynomial commitments with Pairings & Discrete-Log'
 desc: 'We describe in detail how KZG & Bulletproofs polynomial commitment schemes work. We also have an interlude on group theory, along with some hard problems such as discrete log.'
 order: 6
 cat: 'zklearning'
@@ -370,7 +370,7 @@ Prover wants to prove $f$ at multiple points and polynomials $f_i(u_{i,j}) = v_{
 
 # Bulletproofs
 
-Although the powers-of-tau ceremony helps on the "trusted setup" problem, Bulletproofs [[BCCGP'16]](https://eprint.iacr.org/2016/263.pdf), [[BBBPWM'18]](https://eprint.iacr.org/2017/1066.pdf) completely the "trusted setup" problem of KZG!
+Although the powers-of-tau ceremony helps on the "trusted setup" problem, Bulletproofs [[BCCGP'16]](https://eprint.iacr.org/2016/263.pdf), [[BBBPWM'18]](https://eprint.iacr.org/2017/1066.pdf) completely remove the "trusted setup" problem of KZG!
 
 - $keygen$
   - Bulletproofs have a "transparent setup" phase, which is to simply $d+1$ randomly sampled elements from a group $\mathbb{G}$, resulting in $gp = (g_0, g_1, \ldots, g_d)$
@@ -379,7 +379,7 @@ Although the powers-of-tau ceremony helps on the "trusted setup" problem, Bullet
   - commitment is $com_f = g_0^{f_0}g_1^{f_1} \ldots g_d^{f_d}$
   - notice that this is a "vector commitment" version of a Pedersen Commitment
 
-Then, do $eval$ and $veirfy$ recursively around $\log{d}$ times:
+Then, do $eval$ and $verify$ recursively around $\log{d}$ times:
 
 - $eval(gp, f, u)$
   - find $v = f(u)$

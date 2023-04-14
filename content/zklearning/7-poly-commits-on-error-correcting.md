@@ -1,6 +1,6 @@
 ---
 title: 'Polynomial commitments with Error-Correcting Codes'
-desc: 'We describe in detail how KZG & Bulletproofs polynomial commitment schemes work. We also have an interlude on group theory, along with some hard problems such as discrete log.'
+desc: 'We describe error-correcting codes (such as Reed-Solomon) and their applications on creating efficient polynomial-commitment schemes.'
 order: 7
 cat: 'zklearning'
 ---
@@ -194,8 +194,8 @@ $$
 
 This test was discovered independently by the two papers:
 
-- Ligero [[AHIV'17]](https://acmccs.github.io/papers/p2087-amesA.pdf) called this the "Interleaved Test". They were using Reed-Solomon code.
-- [[BCGGHJ'17]](https://eprint.iacr.org/2017/872) introduced "Ideal Linear Commitment Model" and they also introduced a new encoding scheme called "Linear-time Encodable Code". This was the first SNARK with linear prover time!
+- Ligero [[Ames-Hazai-Ishai-Venkitasubramaniam'17]](https://acmccs.github.io/papers/p2087-amesA.pdf) called this the "Interleaved Test". They were using Reed-Solomon code.
+- [[Bootle-Cerulli-Ghadafi-Groth-Hajiabadi-Jakobsen'17]](https://eprint.iacr.org/2017/872) introduced "Ideal Linear Commitment Model" and they also introduced a new encoding scheme called "Linear-time Encodable Code". This was the first SNARK with linear prover time!
 
 Both of these constructions were targeted to general-purpose SNARKs!
 
@@ -258,13 +258,13 @@ Orion [[Xie-Zhang-Song'22]](https://eprint.iacr.org/2022/1010.pdf) achieves a pr
 
 Looking at SNARKs with linear prover time in order:
 
-| Paper       | Proof Size                       | Methodology                      |
-| ----------- | -------------------------------- | -------------------------------- |
-| [BCGGHJ'17] | $O(d)$                           | Ideal Linear Model               |
-| [BCG'20]    | $\mathcal{O}(d^\epsilon)$        | Tensor IOP                       |
-| [BCL'21]    | $\mathcal{O}(\text{polylog}(d))$ | Tensor IOP + PCP                 |
-| [GLSTW'21]  | $\mathcal{O}(d^\epsilon)$        | Polynomial Commitment            |
-| [XZS'22]    | $\mathcal{O}(\log^2{d})$         | Code-switching Proof Composition |
+| Paper                                                                                    | Proof Size                       | Methodology                      |
+| ---------------------------------------------------------------------------------------- | -------------------------------- | -------------------------------- |
+| [[Bootle-Cerulli-Ghadafi-Groth-Hajiabadi-Jakobsen'17]](https://eprint.iacr.org/2017/872) | $O(d)$                           | Ideal Linear Model               |
+| [[Bootle-Chiesa-Groth'20]](https://eprint.iacr.org/2020/1426.pdf)                        | $\mathcal{O}(d^\epsilon)$        | Tensor IOP                       |
+| [[Bootle-Chiesa-Liu'21]](https://eprint.iacr.org/2020/1527.pdf)                          | $\mathcal{O}(\text{polylog}(d))$ | Tensor IOP + PCP                 |
+| [[Golovnev-Lee-Setty-Thaler-Wahby'21]](https://eprint.iacr.org/2021/1043)                | $\mathcal{O}(d^\epsilon)$        | Polynomial Commitment            |
+| [[Xie-Zhang-Song'22]](https://eprint.iacr.org/2022/1010.pdf)                             | $\mathcal{O}(\log^2{d})$         | Code-switching Proof Composition |
 
 # Background: Linear-time Encodable Code
 

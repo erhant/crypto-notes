@@ -1,9 +1,0 @@
-{
-  "default": true,
-  "line-length": false,
-  "single-title": false,
-  "no-hard-tabs": false,
-  "ol-prefix": false,
-  "no-space-in-emphasis": false,
-  "no-reversed-links": false
-}

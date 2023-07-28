@@ -2,16 +2,28 @@
 authors = ["erhant"]
 language = "en"
 multilingual = false
-src = "src"
+src = "content"
 title = "Cryptography Notes"
+description = "My notes related to cryptography, number theory and zero-knowledge proofs."
 
+# uses KaTeX instead of MathJax, much better interop
 [preprocessor.katex]
 after = ["links"]
 
+# converts mermaid drawings to SVG
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
+
+# generate table of contents
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
 
 [output]
 
 [output.html]
+additional-css = ["custom.css"]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+git-repository-url = "https://github.com/erhant/crypto-notes"
+git-repository-icon = "fa-github"
+no-section-label = true

@@ -1,5 +1,3 @@
-<!-- toc -->
-
 ```mermaid
 sequenceDiagram
 	actor Alice

@@ -1,7 +1,5 @@
 [(video 1)](https://www.youtube.com/watch?v=tAdLHQVWlUY) [(video 2)](https://www.youtube.com/watch?v=LbpPCN-f_XA) [(video 3)](https://www.youtube.com/watch?v=nQ4nmbad-eo)
 
-# Recall: Polynomial Commitments
-
 We will use polynomial commitments in this lecture, so let's quickly recall what they are!
 
 - The prover would like to commit to some polynomial $f \in \mathbb{F}_p^{(\leq d)}[X]$.
@@ -85,7 +83,7 @@ You may notice that there is $\tau$ here, which is supposed to be secret; and yo
 
 So are we really independent of $d$? Well, the prover must compute the quotient polynomial $q$ and the complexity of that is related to $d$, so you will lose from prover time when you have large degrees.
 
-You might ask, how to prove that this is a secure poly-commit scheme? We are going into that today…
+You might ask, how to prove that this is a secure poly-commit scheme? We are not going into that today…
 
 ## Properties of KZG
 

@@ -20,7 +20,7 @@ _NOTE:_ $2^{ab} - 1 = (2^a - 1)(2^{ab - a} + \ldots + 1)$
 
 _NOTE:_ If $a$ odd, then $2^a + 1$ divides $2^{ab} + 1$.
 
-_NOTE:_ **Gauss** discovered that regular polygons with the number of sides equal to a Fermat prime can be constructed using a ruler and compass.
+**Gauss** discovered that regular polygons with the number of sides equal to a Fermat prime can be constructed using a ruler and compass.
 
 ## Is there an _easy_ way to generate _large_ primes?
 
@@ -40,9 +40,7 @@ $$
 \Pi'(x) = \text{Li}(x) - \sum_{\rho} \text{Li}(x^\rho)
 $$
 
-where $\rho$ is the zeros of the Zeta function!
-
-_NOTE:_ $\log x$ throughout this course always refers to natural logarithm.
+where $\rho$ is the zeros of the Zeta function! By the way, $\log x$ throughout this course always refers to the natural logarithm.
 
 # Fundamental Theorem of Arithmetic
 

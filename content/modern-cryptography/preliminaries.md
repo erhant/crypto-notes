@@ -130,17 +130,15 @@ There are some special properties of functions that relate how much they grow wi
 - **Non-negligible** functions are functions that are not negligible. This does not necessarily mean they are noticable!
 - **Overwhelming** functions are such that if $f$ is overwhelming, then $1 - f$ is negligible.
 
-_NOTE:_ Space complexity should be upper bounded by Time complexity. You can't be using more complex space than time, because you should also spend time accessing/modifying whatever data you store.
+Note that space complexity should be upper bounded by Time complexity. You can't be using more complex space than time, because you should also spend time accessing/modifying whatever data you store.
 
-_NOTE:_ An equivalent definition of negligible functions is given by the Big-O notation: a positive function $\mu(n)$ is negligible if and only if $\mu(n) \in \mathcal{O}(1/p(n))$ for all positive polynomials $p$.
-
-_EXAMPLE:_ The following functions are **negligible**:
+An equivalent definition of negligible functions is given by the Big-O notation: a positive function $\mu(n)$ is negligible if and only if $\mu(n) \in \mathcal{O}(1/p(n))$ for all positive polynomials $p$. The following functions are **negligible**:
 
 - $1/2^n$
 - $1/n!$
 - $1/n^{\log n}$
 
-_NOTE:_ A polynomial times polynomial functions is a polynomial; however, a polynomial times negligible is a negligible function.
+A polynomial times polynomial functions is a polynomial; however, a polynomial times negligible is a negligible function.
 
 ## Negligible vs Noticable
 

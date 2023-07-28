@@ -164,9 +164,7 @@ $$
 
 where $F_k : \{0, 1\}^n \to \{0, 1\}^n$ for some $n' = \text{poly}(n)$.
 
-It is easy to think of an interactive proof where the distinguisher keeps querying $x$ to get $f(x)$ in one scenario, and $F_k(x)$ in the other; if it can't distinguish the difference after polynomially many such queries, our dear $F_k$ is a pseudo-random function!
-
-_NOTE:_ Given a PRF $F$, we can immediately obtain a PRG $G$. For example:
+It is easy to think of an interactive proof where the distinguisher keeps querying $x$ to get $f(x)$ in one scenario, and $F_k(x)$ in the other; if it can't distinguish the difference after polynomially many such queries, our dear $F_k$ is a pseudo-random function! Also note that given a PRF $F$, we can immediately obtain a PRG $G$. For example:
 
 $$
 G(k) = F_k(00\ldots0) || F_k(00\ldots01)

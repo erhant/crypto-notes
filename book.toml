@@ -22,8 +22,10 @@ renderer = ["html"]
 [output]
 
 [output.html]
-additional-css = ["custom.css"]
-additional-js = ["mermaid.min.js", "mermaid-init.js"]
+additional-css = ["./utilities/custom.css"]
+additional-js = ["./utilities/mermaid.min.js", "./utilities/mermaid-init.js"]
 git-repository-url = "https://github.com/erhant/crypto-notes"
 git-repository-icon = "fa-github"
 no-section-label = true
+default-theme = "rust"
+preferred-dark-theme = "navy"

@@ -1,0 +1,9 @@
+{
+  // https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png
+  "material-icon-theme.folders.associations": {
+    "modern-cryptography": "Guard",
+    "number-theory": "Functions",
+    "zklearning": "Log",
+    "zkhack": "Video"
+  }
+}

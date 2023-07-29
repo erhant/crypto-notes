@@ -1,0 +1,41 @@
+# https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Actions
+name: Deploy book to Vercel
+
+# https://github.com/orgs/vercel/discussions/3307
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+# i want to manually do this
+on: workflow_dispatch
+
+jobs:
+  buildAndDeploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # To push a branch
+      pull-requests: write # To create a PR from that branch
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install mdBook
+        uses: extractions/setup-crate@v1
+        with:
+          owner: rust-lang
+          name: mdBook
+
+      - name: Generate static content for the book
+        run: mdbook build
+
+      - name: Setup Node.js (required to install Vercel CLI)
+        uses: actions/setup-node@v3
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Pull Vercel environment information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy to Vercel
+        run: vercel book --prod --token=${{ secrets.VERCEL_TOKEN }}

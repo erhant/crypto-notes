@@ -397,7 +397,7 @@ The key operations here will be:
 
 - Creating a variable
 
-```rust
+```rs
 cs.add_var(p, v) -> id;
 // cs: constraint system
 // p:  visibility of variable
@@ -407,7 +407,7 @@ cs.add_var(p, v) -> id;
 
 - Creating a linear combination of variables
 
-```rust
+```rs
 // make an empty linear combination at first
 lc := cs.zero();
 // now fill it with variables
@@ -420,7 +420,7 @@ lc.add(c, id) -> lc';
 
 - Adding a constraint
 
-```rust
+```rs
 // suppose you have some linear constraints lc_A, lc_B, lc_C
 cs.constraint(lc_A, lc_B, lc_C)
 // adds a constraint lc_A * lc_B = lc_C
@@ -428,7 +428,7 @@ cs.constraint(lc_A, lc_B, lc_C)
 
 These are pretty high-level, so let's take a look at a more realistic example.
 
-```rust
+```rs
 fn and(cs: ConstraintSystem, a: Var, b: Var) -> Var {
   // do a simple bitwise AND on values
 	let result = cs.new_witness_var(|| a.value() & b.value());
@@ -446,7 +446,7 @@ This is cool and all, but it has quite a bit of boilerplate, and seems very tedi
 
 Here is an example, where we can write the same code but apply it in a `Boolean` struct and overload the `and` operator.
 
-```rust
+```rs
 struct Boolean { var: Var };
 
 impl BitAnd for Boolean {
@@ -478,7 +478,7 @@ In the Circom example, we wrote the circuit ourselves. In the Arkworks example, 
 
 Meet ZoKrates, a tool that does what we have just described.
 
-```rust
+```rs
 type F = field;
 
 def multiplication(public F x, private F[2] ys) {

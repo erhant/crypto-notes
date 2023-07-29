@@ -19,20 +19,29 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install mdBook
+      - name: Install mdbook
         uses: extractions/setup-crate@v1
         with:
           owner: rust-lang
           name: mdBook
 
       - name: Install KaTeX preprocessor
-        run: cargo install mdbook-katex
+        uses: extractions/setup-crate@v1
+        with:
+          owner: mdbook-katex
+          name: lzanini
 
       - name: Install Mermaid preprocessor
-        run: cargo install mdbook-mermaid
+        uses: extractions/setup-crate@v1
+        with:
+          owner: mdbook-mermaid
+          name: badboy
 
       - name: Install ToC preprocessor
-        run: cargo install mdbook-toc
+        uses: extractions/setup-crate@v1
+        with:
+          owner: mdbook-toc
+          name: badboy
 
       - name: Generate static content for the book
         run: mdbook build

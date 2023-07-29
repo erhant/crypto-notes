@@ -18,8 +18,8 @@
 - [Contents](./zkhack/README.md)
 - [1. What is a SNARK?](./zkhack/what-is-a-snark.md)
 - [2. Building a SNARK](./zkhack/building-a-snark.md)
-- [3. zkEVM & zkID](./zkhack/zkEVM-and-zkID.md)
-- [4. Custom Gates & Lookups](./zkhack/custom-gates.md)
+- [3. Custom Gates & Lookups](./zkhack/custom-gates.md)
+- [4. zkEVM & zkID](./zkhack/zkEVM-and-zkID.md)
 
 # Modern Cryptography
 

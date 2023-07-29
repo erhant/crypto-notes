@@ -3,7 +3,7 @@ authors = ["erhant"]
 language = "en"
 multilingual = false
 src = "content"
-title = "Cryptography Notes"
+title = "Cryptonotes"
 description = "My notes related to cryptography, number theory and zero-knowledge proofs."
 
 # uses KaTeX instead of MathJax, much better interop

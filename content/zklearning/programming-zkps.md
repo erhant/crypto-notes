@@ -323,7 +323,6 @@ template Bits(n) {
 }
 
 // Check if a given signal is in range [1, 9]
-// TODO: can we find a generic version for this?
 template OneToNine() {
   signal input in;
   component lowerbound = Bits(4);
@@ -377,10 +376,9 @@ template Sudoku(n) {
 	}
 
   // ensure all the values in each 3x3 square is unique
-  // TODO: will do later :D
+  // left as an exercise to the reader :)
 }
 
-// also TODO: make this generic, not just n = 9
 component main{public[puzzle]} = Sudoku(9);
 
 ```

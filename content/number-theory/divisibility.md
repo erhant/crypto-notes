@@ -8,17 +8,15 @@ If $a$ divides $b$, we show this as $a \mid b$. Note that this does not mean $b/
 - $0 \mid b$ is false, unless $b = 0$ too.
 - $2 \mid b$ is a fancy way of saying $b$ is even.
 
-**Q:** Show that $6 \mid n(n+1)(n+2)$ for any $n$.
+> **Question**: Show that $6 \mid n(n+1)(n+2)$ for any $n$.
 
-**A:** We can prove with the argument that one of those terms is even and another is divisible by 3. However, there is a better argument. We can consider the binomial $\binom{n+2}{3}$, which is the number of ways to choose 3 elements from $n+2$ values.
+We can prove with the argument that one of those terms is even and another is divisible by 3. However, there is a better argument. We can consider the binomial $\binom{n+2}{3}$, which is the number of ways to choose 3 elements from $n+2$ values. This gives $(n + 2) \times (n + 1) \times (n)$ to choose 3 elements, and they can be ordered in 6 different ways so we divide by 6. Since we are counting the choices here, the result is definitely an integer. As such, 6 divides $n(n+1)(n+2)$.
 
-This gives $(n + 2) \times (n + 1) \times (n)$ to choose 3 elements, and they can be ordered in 6 different ways so we divide by 6. Since we are counting the choices here, the result is definitely an integer. As such, 6 divides $n(n+1)(n+2)$.
+> **Question**: Show that $8 \mid n^2 - 1$ if $n$ is odd.
 
-**Q:** Show that $8 \mid n^2 - 1$ if $n$ is odd.
+Rewrite $n$ as $2m+1$ as it is odd. Now, $n^2-1 = 4(m^2 + m)$. 4 is there alright, and if we can show that $m^2 + m$ is even then the whole thing is divisible by 8. Well, rewrite that as $m(m+1)$ and one of those is definitely even.
 
-**A:** Rewrite $n$ as $2m+1$ as it is odd. Now, $n^2-1 = 4(m^2 + m)$. 4 is there alright, and if we can show that $m^2 + m$ is even then the whole thing is divisible by 8. Well, rewrite that as $m(m+1)$ and one of those is definitely even.
-
-Set of $x$ such that $d \mid x$ is called ideal. For the integers ($\mathbb{Z}$), ideal means "closed under + and -".
+> **Definition**: Set of $x$ such that $d \mid x$ is called ideal. For the integers ($\mathbb{Z}$), ideal means "closed under + and -".
 
 ### Euclid's Division Algorithm
 
@@ -65,9 +63,10 @@ How fast is this method? Let us consider the worst case. We look at $b = qa + r$
 - $8 = 5\times 1 + 3$
 - $5 = 3\times1 + 2$
 - $3 = 2\times1 + 1$
-- $2 = 1\times 2 + 0$ and we are done!
+- $2 = 1\times 2 + 0$
+- aaand we are done!
 
-We notice that we can work our way up backwards, the remainders follow the recursive pattern $r_i = r_{i+1} + r_{i+2}$. Looks familiar? :)
+We notice that we can work our way up backwards, the remainders follow the recursive pattern $r_i = r_{i+1} + r_{i+2}$ for this example. Looks familiar?
 
 ### Fibonacci Sequence
 
@@ -217,7 +216,7 @@ Alternatively, allowing negative integers: any number $n \ne 0$ is a product of 
 
 We can also give a similar result for polynomials over $\mathbb{R}$. Take $f(x) = a_0 + a_1 x + \ldots$. Here, the _units_ are non-zero constant polynomials, and every non-zero polynomial can be written as a product of irreducible polynomials and constant polynomials.
 
-Note that real numbers don't have primes, because any real $x \geq 1$ can be written as $x = \sqrt{x} \times \sqrt{x}$.
+> Real numbers don't have primes, because any real $x \geq 1$ can be written as $x = \sqrt{x} \times \sqrt{x}$
 
 What about integers in the form $4n+1$, such as $1, 5, 9, 13, 17, 21, \ldots$? Well, you indeed have "primes" where the product is like $(4n+1)(4m+1) = 4(mn+m+n)+1$. However, the factorization is **not unique**, e.g. $9 \times 49 = 21 \times 21$.
 
@@ -231,7 +230,7 @@ Lets look at functions on reals $\geq 0$. We can multiply, add or subtract them 
 
 Another example: take all numbers of the form $m + n\sqrt{-5}$ where $m,n$ are integers. This is an example of _algebraic number field_. Well, this is not unique too, $6 = 2 + 3 = (1 + \sqrt{5})(1 - \sqrt{-5})$.
 
-We will later see that number of the form $m + n\sqrt{-1}$ have unique factorization! These are called Gaussian Integers. Units here are $\pm 1, \pm \sqrt{-1}$.
+> We will later see that number of the form $m + n\sqrt{-1}$ have unique factorization! These are called Gaussian Integers. Units here are $\pm 1, \pm \sqrt{-1}$
 
 # Euclid's Proof of Infinitude of Primes
 
@@ -254,9 +253,9 @@ Nevertheless, proving that all primes are given seems to be really hard. We have
 
 # Last Digit
 
-We know that the last digit of primes should be 1, 3, 7 or 9 (other than 2 and 5 for their respective numbers). We may ask, are there infinitely many primes with the last digit 1, i.e. primes of form $10n+1$? **Dirichlet** proved that **yes, indeed there are**!
+We know that the last digit of primes should be 1, 3, 7 or 9 (other than 2 and 5 for their respective numbers). We may ask, are there infinitely many primes with the last digit 1, i.e. primes of form $10n+1$? Dirichlet proved that yes, indeed there are!
 
-Well, are there infinitely primes in the form $an + b$ where $(a,b)=1$ and $a\ne 0$? **Dirichlet**'s proof on arithmetic progressions actually prove that yes, there are infinitely many primes in all arithmetic progressions.
+Well, are there infinitely primes in the form $an + b$ where $(a,b)=1$ and $a\ne 0$? Dirichlet's proof on arithmetic progressions actually prove that yes, there are infinitely many primes in all arithmetic progressions.
 
 Let us check some easy cases. Take primes of form $4n+3$. Well, you could do a variation of Euclid's proof. Take number $4\times p_1 \times p_2 \times \ldots \times p_k - 1$. This number is indeed of form $4m+3$, and:
 
@@ -276,20 +275,16 @@ We have 2 in there so that the result is odd, and square so that the result is o
 
 # Prime Gaps
 
-Looking at $2 ,3, 5, 7, 11, 13, 17, 19, 23, 29$ we have varying amount of gaps. Is there a **bound** to the gaps?
+Looking at $2 ,3, 5, 7, 11, 13, 17, 19, 23, 29$ we have varying amount of gaps. Is there a bound to the gaps?
 
 The answer turns out to be no. It is easy to show, as you can take numbers $n! + 2, n! + 3, \ldots, n! + n$ and there will be $n-1$ numbers that are not prime. Well, $n-1$ is slightly less than $\log (n!)$. Turns out that the average size of prime gap is $\approx \log (n)$. It is very hard to show that gap is sometimes bigger or smaller than this.
 
-**Zhang** has shown that gap is sometimes less than $70,000,000$ for large $n$, in an amazing breakthrough. It has been reduced to a few hundreds recently.
+> Zhang has shown that gap is sometimes less than $70,000,000$ for large $n$, in an amazing breakthrough. It has been reduced to a few hundreds recently.
 
-It is also believed that there are infinitely many consecutive primes with gap 2.
+It is believed that there are infinitely many consecutive primes with gap 2. It is also conjectured that the gap is sometimes $\approx (\log n)^2$. This seems to be very hard to prove.
 
-It is also conjectured that the gap is sometimes $\approx (\log n)^2$. This seems to be very hard to prove.
-
-Another crazy result by **Rankin** (1938) shows that the gap is sometimes bigger than:
-
-$$
-\frac{1}{3}\frac{\log n \log \log n \log \log \log \log n}{(\log\log\log n)^3}
-$$
-
-Bizarre!
+> Another crazy result by Rankin (1938) shows that the gap is sometimes bigger than:
+>
+> $$ \frac{1}{3}\frac{\log n \log \log n \log \log \log \log n}{(\log\log\log n)^3} $$
+>
+> Bizarre!

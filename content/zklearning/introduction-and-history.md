@@ -1,8 +1,8 @@
 [(video)](https://www.youtube.com/watch?v=uchjTIlPzFo)
 
-When we think of proofs made by Euclid, Gauss, Euler and such, we think of proofs where we are trying to show that given some axioms and declarations, you can show that some claim is true.
+When we think of proofs made by Euclid, Gauss, Euler and such, we think of proofs where we are trying to show that given some axioms and declarations, you can show that some claim is true. These are classical proofs.
 
-For ZKP, we must think of proofs more interactively:
+There is a much more powerful proof system, called interactive proofs, we must think of proofs more interactively such as:
 
 ```mermaid
 sequenceDiagram

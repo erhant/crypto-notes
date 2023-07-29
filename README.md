@@ -20,6 +20,8 @@ We use the following preprocessors:
 
 A tiny [custom CSS](./custom.css) is used to align Mermaid outputs to center.
 
+We may also use [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli) to lint the pages (if i feel like it).
+
 ## Contributions
 
 Feel free to create an issue if you see any fixes!

@@ -1,5 +1,7 @@
 # Summary
 
+[Welcome](./README.md)
+
 # ZKP MOOC Spring 2023
 
 - [Contents](./zklearning/README.md)
@@ -9,7 +11,7 @@
 - [4. SNARKs via IPs](./zklearning/snarks-via-ips.md)
 - [5. The PLONK SNARK](./zklearning/the-PLONK-snark.md)
 - [6. Poly-commits: Pairing & Discrete Log](./zklearning/poly-commits-on-pairings-with-dlog.md)
-- [7. Poly-commits: Error Correcting Codes](./zklearning/poly-commits-on-error-correcting.md)
+- [7. Poly-commits: Error-Correcting Codes](./zklearning/poly-commits-on-error-correcting.md)
 
 # ZKHACK Whiteboard Sessions
 

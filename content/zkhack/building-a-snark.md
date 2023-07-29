@@ -112,7 +112,7 @@ The trick is to see that if $f(u) =v$ then $u$ is a root of $\hat{f} = f - v$. I
 
 With this, the Prover will calculate the quotient polynomial $q(X)$ and will commit to it to find $com_q$. This will be the proof $\pi = com_q \in \mathbb{G}$. The verifier will accept the proof $\pi$ only if $(\alpha - u)com_q = com_f - vG$.
 
-Note that verifier is using $\alpha$ here, even though it was secret. The truth is, it is not actually using $\alpha$ but instead uses a **pairing**, and the only thing verifier needs to know for that is $G$ and $H_1$, which are part of public parameters $pp$.
+Note that verifier is using $\alpha$ here, even though it was secret. The truth is, it is not actually using $\alpha$ but instead uses a **pairing**, and the only thing verifier needs to know for that is $H_0 = G$ and $H_1 = \alpha G$, which are part of public parameters $pp$.
 
 Computing $q(x)$ is pretty expensive for large $d$, and this part takes most of the computational time of the entire algorithm.
 
@@ -151,13 +151,11 @@ The Verifier here is just creating random numbers. Using Fiat-Shamir transform, 
 As usual, we expect the following properties:
 
 - **Complete**: if $\exists w : C(x, w) = 0$ then verifier always accepts.
-- **Knowledge Sound**: Let $x \in \mathbb{F}_p^n$ . For every $P*$ that convinces the verifier with some non-negligible probability $\beta$, there is an efficient extractor $E$ such that:
+- **Knowledge Sound**: Let $x \in \mathbb{F}_p^n$ . For every $P*$ that convinces the verifier with some non-negligible probability $\beta$, there is an efficient extractor $E$ such that for some negligible $\epsilon$:
 
 $$
 \Pr[E(x, f_1, r_1, \ldots, f_{t-1}, r_{t-1}, f_t) \to w : C(x, w) = 0] \geq \beta - \epsilon
 $$
-
-for some negligible $\epsilon$.
 
 - **Zero-Knowledge**: This is optional, but will be required for a zk-SNARK.
 

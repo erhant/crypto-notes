@@ -1,0 +1,2 @@
+# allow markdown to be detected
+*.md linguist-detectable

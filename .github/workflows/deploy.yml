@@ -25,6 +25,15 @@ jobs:
           owner: rust-lang
           name: mdBook
 
+      - name: Install KaTeX preprocessor
+        run: cargo install mdbook-katex
+
+      - name: Install Mermaid preprocessor
+        run: cargo install mdbook-mermaid
+
+      - name: Install ToC preprocessor
+        run: cargo install mdbook-toc
+
       - name: Generate static content for the book
         run: mdbook build
 

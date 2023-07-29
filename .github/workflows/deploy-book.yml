@@ -28,20 +28,20 @@ jobs:
       - name: Install KaTeX preprocessor
         uses: extractions/setup-crate@v1
         with:
-          owner: mdbook-katex
-          name: lzanini
+          owner: lzanini
+          name: mdbook-katex
 
       - name: Install Mermaid preprocessor
         uses: extractions/setup-crate@v1
         with:
-          owner: mdbook-mermaid
-          name: badboy
+          owner: badboy
+          name: mdbook-mermaid
 
       - name: Install ToC preprocessor
         uses: extractions/setup-crate@v1
         with:
-          owner: mdbook-toc
-          name: badboy
+          owner: badboy
+          name: mdbook-toc
 
       - name: Generate static content for the book
         run: mdbook build

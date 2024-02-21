@@ -1,4 +1,4 @@
-[(video 1)](https://www.youtube.com/watch?v=HdwMtrXLLWk) [(video 2)](https://www.youtube.com/watch?v=xuGQYEvytxk) [(video 3)](https://www.youtube.com/watch?v=a9H3tHnSxT4) [(video 4)](https://www.youtube.com/watch?v=9MnC8dNK-ic) [(video 5)](https://www.youtube.com/watch?v=9J7omEbXj3I)
+<!-- toc -->
 
 # Recall: How to build an Efficient SNARK?
 

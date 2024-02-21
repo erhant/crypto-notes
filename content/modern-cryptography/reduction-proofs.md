@@ -1,3 +1,5 @@
+<!-- toc -->
+
 # Reduction Proofs
 
 Reduction proofs are the main tool we will use to prove the security of some scheme. We have given a brief overview of them while describing the third principle of modern cryptography.

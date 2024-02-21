@@ -1,4 +1,6 @@
-[(video)](https://www.youtube.com/watch?v=uchjTIlPzFo)
+<!-- toc -->
+
+# Interactive Proofs
 
 When we think of proofs made by Euclid, Gauss, Euler and such, we think of proofs where we are trying to show that given some axioms and declarations, you can show that some claim is true. These are classical proofs.
 

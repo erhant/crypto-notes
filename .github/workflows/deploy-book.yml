@@ -1,5 +1,5 @@
 # https://github.com/rust-lang/mdBook/wiki/Automated-Deployment%3A-GitHub-Actions
-name: Deploy book to Vercel
+name: crypto.erhant.me
 
 # https://github.com/orgs/vercel/discussions/3307
 env:

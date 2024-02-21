@@ -1,6 +1,8 @@
-[(video 1)](https://www.youtube.com/watch?v=Uldlq35Se3k) [(video 2)](https://www.youtube.com/watch?v=1oLzrbTBlbc)
+<!-- adding toc here breaks some stuff, dunno why -->
 
 # Custom Gates
+
+Consider the circuit below:
 
 ```mermaid
 flowchart LR
@@ -14,7 +16,7 @@ flowchart LR
 
 ```
 
-Consider the circuit above. For a gate number $g$, denote the left input, right input, and the output as $a_g, b_g, c_g$ respectively. We would like the circuit to satisfy the following:
+For a gate number $g$, denote the left input, right input, and the output as $a_g, b_g, c_g$ respectively. We would like the circuit to satisfy the following:
 
 - $a_1 + b_1 = c_1 = a_3$
 - $a_2 + b_2 = c_2 = b_3$
@@ -113,8 +115,6 @@ Let us revisit the constraints from before:
 Then you will make a single polynomial out of these, that the verifier can query at random points!
 
 # Lookup Tables
-
-[(video)](https://www.youtube.com/watch?v=1oLzrbTBlbc)
 
 Consider a computation like $c_i = a_i \oplus b_i$ where $\oplus$ is the XOR operation. Calculating this every time in the proof and writing the constraints for it will be costly. Instead, you could have a large table that shows all possible operation for the XOR (for example if $a, b, c \in \{0, 1\}$ then the table has 4 rows, literally just the truth table for XOR operation) and simply make the argument "is there a row in this table with $a_i, b_i, c_i$? This is what is called a **Lookup Argument**. It is an optimization method to save from computation time, although generating the table could take time.
 

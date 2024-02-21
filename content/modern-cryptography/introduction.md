@@ -1,3 +1,7 @@
+<!-- toc -->
+
+# Introduction
+
 ```mermaid
 sequenceDiagram
 	actor Alice
@@ -10,8 +14,6 @@ sequenceDiagram
 	Note over Bob: m #8592; Dec(k,c)
 
 ```
-
-# Introduction
 
 An outline of how a symmetric cipher works is given above. There are 3 main components:
 

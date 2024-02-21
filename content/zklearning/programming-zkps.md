@@ -1,4 +1,6 @@
-[(video 1)](https://www.youtube.com/watch?v=kho-vcQGa0c) [(video 2)](https://www.youtube.com/watch?v=guQoS2xSksI) [(video 3)](https://www.youtube.com/watch?v=zsDeoXx-miE) [(codes)](https://github.com/rdi-berkeley/zkp-course-lecture3-code)
+<!-- toc -->
+
+# Programming ZKPs
 
 Suppose you have an idea for an application & you want to use ZK in it. What do you do?
 

@@ -1,4 +1,6 @@
-[(video 1)](https://www.youtube.com/watch?v=J4pVTamUBvU) [(video 2)](https://www.youtube.com/watch?v=vxyoPM2m7Yg)
+<!-- toc -->
+
+# Building a SNARK
 
 There are various paradigms on building SNARKs, but the general paradigm is two step:
 

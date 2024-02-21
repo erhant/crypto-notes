@@ -1,3 +1,5 @@
+<!-- toc -->
+
 # Pseudo-random Generators
 
 Let us think of an experiment with an efficient **distinguisher** $D$ that plays the following two games:

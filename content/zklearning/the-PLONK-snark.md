@@ -1,4 +1,6 @@
-[(video 1)](https://www.youtube.com/watch?v=tAdLHQVWlUY) [(video 2)](https://www.youtube.com/watch?v=LbpPCN-f_XA) [(video 3)](https://www.youtube.com/watch?v=nQ4nmbad-eo)
+<!-- toc -->
+
+# Recall: Polynomial Commitments
 
 We will use polynomial commitments in this lecture, so let's quickly recall what they are!
 
@@ -103,7 +105,7 @@ The way we calculate the commitment $com_f = f(\tau) G$ will change based on how
   - We can compute the commitment in linear time $\mathcal{O}(d)$ since we just have to multiply $f_i$ with $H_i$ for $i \in [d]$, giving us: $com_f = f_0H_0 + f_1H_1 + \ldots + f_dH_d$
 - **Point-Value Representation with NTT**: A polynomial of degree $d$ can be defined by $d+1$ points. So, we have $d+1$ points and their evaluations $(a_0, f(a_0)), (a_1, f(a_1)), \ldots, (a_d, f(a_d))$.
   - Computing $com_f$ naively would be to construct the coefficients $f_0, f_1, \ldots, f_d$ to basically convert point-value representation to coefficient representation, and then compute the commitment as shown in that case.
-  - Converting from point-value to coefficient representation takes time $\mathcal{O}(d \log d)$ using Number Theory Transform (NTT) which is closely related to Fourier Transform. However, this is more than linear time, we want to do better!
+  - Converting from point-value to coefficient representation takes time $\mathcal{O}(d \log d)$ using Number Theoretic Transform (NTT) which is closely related to Fourier Transform. However, this is more than linear time, we want to do better!
 - **Point-Value Representation with Lagrange Interpolation**: Thankfully, there is a linear-time algorithm to commit to a polynomial in point-value representation. The idea is to use Lagrange Interpolation to compute the commitment.
 
 $$

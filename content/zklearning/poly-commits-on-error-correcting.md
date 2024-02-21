@@ -1,4 +1,6 @@
-[(video 1)](https://www.youtube.com/watch?v=cxtZfAHBTZM) [(video 2)](https://www.youtube.com/watch?v=uNdlWjB_wfo) [(video 3)](https://www.youtube.com/watch?v=uafDickNRZs)
+<!-- toc -->
+
+# Polynomial Commitments
 
 In the previous lecture, we have seen some polynomial commitment schemes based on pairings and discrete-log.
 

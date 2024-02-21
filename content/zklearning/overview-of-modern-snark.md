@@ -1,8 +1,8 @@
-[(video 1)](https://www.youtube.com/watch?v=MUnlR3gMKu0) [(video 2)](https://www.youtube.com/watch?v=9XOi_iEtTt8) [(video 3)](https://www.youtube.com/watch?v=Sv99taTJJmM)
-
-In the previous lecture, we have discussed interactive proofs (IP) in general. Now, we will mostly be talking about non-interactive proofs, in particular SNARKs.
+<!-- toc -->
 
 # SNARK
+
+In the previous lecture, we have discussed interactive proofs (IP) in general. Now, we will mostly be talking about non-interactive proofs, in particular SNARKs.
 
 A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 
@@ -35,7 +35,7 @@ SNARKs and zk-SNARKs can be used in many ways within a blockchain.
 - **Private Transactions**: A ZKP that a private transaction is valid. Many examples: TornadoCash, ZCash, Ironfish, Aleo.
 - **Compliance**: A proof that a private transaction is compliant with banking laws (e.g. Espresso), or a proof that an exchange is solvent without showing the assets (e.g. Raposa).
 
-### A non-Blockchain Application
+## Non-Blockchain Applications
 
 Blockchain is really spearheading the development in these areas, but there are many non-blockchain applications of SNARKs too. Here is one example: proving that a photo is taken at some time and at some place.
 

@@ -4,7 +4,7 @@ language = "en"
 multilingual = false
 src = "content"
 title = "Cryptonotes"
-description = "My notes related to cryptography, number theory and zero-knowledge proofs."
+description = "My notes related to cryptography & zero-knowledge proofs."
 
 # uses KaTeX instead of MathJax, much better interop
 [preprocessor.katex]

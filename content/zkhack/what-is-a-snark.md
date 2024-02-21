@@ -1,6 +1,6 @@
-[(video)](https://www.youtube.com/watch?v=h-94UhJLeck)
+<!-- toc -->
 
-# SNARK
+# What is a SNARK?
 
 A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 

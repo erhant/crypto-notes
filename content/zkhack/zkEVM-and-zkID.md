@@ -1,5 +1,4 @@
-[(video 1)](https://www.youtube.com/watch?v=mrf9HjjL_38&list=PLj80z0cJm8QErn3akRcqvxUsyXWC81OGq&index=11)
-[(video 2)](https://www.youtube.com/watch?v=5TJ3BZEc1Ro&list=PLj80z0cJm8QErn3akRcqvxUsyXWC81OGq&index=14)
+<!-- toc -->
 
 # zkEVM with Jordi Baylina
 

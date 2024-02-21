@@ -1,4 +1,6 @@
-[(video 1)](https://www.youtube.com/watch?v=7YXVGDtuHrk) [(video 2)](https://www.youtube.com/watch?v=lG8tgRuD6Mw) [(video 3)](https://www.youtube.com/watch?v=f1geFzZ57xw) [(video 4)](https://www.youtube.com/watch?v=Lslwy6O6Ehw) [(video 5)](https://www.youtube.com/watch?v=co3uVIQrGgo)
+<!-- toc -->
+
+# SNARKS via IPs
 
 A SNARK stands for a _succinct_ proof that a certain statement is true. Succinct here is meaning that the proof is "short". For example, I have a statement:
 
